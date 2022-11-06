@@ -31,7 +31,7 @@ export function AnimeDetail(){
                     <div className="anime-AnimeDetail-episodes-count">{data?.episodesList.length}</div>
 
                 </div>
-                {data && data?.episodesList.length > 0 && <Episodes {...data}/>}
+                {data && data?.episodesList.length > 0 && <Episodes {...data} animeId={params.animeId}/>}
             </div>
         </div>
     );
