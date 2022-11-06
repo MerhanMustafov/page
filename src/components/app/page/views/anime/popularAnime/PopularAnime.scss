@@ -1,0 +1,15 @@
+.popularAnimeWrapper{
+    border: 3px solid rgb(0, 23, 128);
+    h2{
+        background: orange;
+        color: white;
+    }
+    .popularAnimeInnerWrapper{
+    border: 10px solid rgb(0, 128, 111);
+        display: flex;
+        align-items: center;
+        // flex-wrap: wrap;
+        overflow-x: auto;       
+
+    }
+}

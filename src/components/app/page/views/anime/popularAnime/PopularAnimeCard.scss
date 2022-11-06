@@ -1,0 +1,27 @@
+.popularAnimeCardWrapper{
+        width: 20%;
+            // height: 320px;
+    .popularAnimeCardInnerWrapper{
+            border: 2px solid red;
+            margin: 10px;
+            border-radius: 20px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            // justify-content: space-;
+
+        h2{
+            // border: 2px solid red;
+            font-size: 17px;
+            padding: 5px;
+            // height: 70px;
+        }
+        img{
+            border-radius: inherit;
+            width: 200px;
+            object-fit: cover;
+            height: 200px;
+        }
+    }
+}

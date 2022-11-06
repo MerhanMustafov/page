@@ -1,7 +1,13 @@
-
+import {PopularAnime} from './popularAnime/PopularAnime'
+import {NavigationAnime} from './navigationAnime/NavigationAnime'
+import {useParams} from 'react-router-dom'
 
 export function AnimeView() {
     return (
-        <div>Anime</div>
+        <>
+        <NavigationAnime></NavigationAnime>
+        <PopularAnime></PopularAnime>
+        </>
+
     );
 }
