@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPopularAnime } from '../../../../../../api/apiReaquest/apiRequest'
+import { getPopularAnime } from '../../../../../../../api/apiReaquest/apiRequest'
 import {PopularAnimeCard} from './PopularAnimeCard'
 
 interface SingleAnimeData {
@@ -11,6 +11,7 @@ interface SingleAnimeData {
 }
 
 export function PopularAnime() {
+    let key = 1
   const [data, setData] = useState<SingleAnimeData[]>([])
   const [error, setError] = useState<string>('')
 
@@ -19,11 +20,11 @@ export function PopularAnime() {
   }, [])
 
   return (
-    <div className="popularAnimeWrapper">
-        <h2 className="popularAnimeSectionTitle">Popular anime</h2>
-        <div className="popularAnimeInnerWrapper">
+    <div className="anime-PopularAnime-outer-wrapper">
+        <h2 className="anime-PopularAnime-tite">Popular anime</h2>
+        <div className="anime-PopularAnime-inner-wrapper">
             { data.length > 0
-                ? data.map(anime => <PopularAnimeCard {...anime}/>)
+                ? data.map(anime => <PopularAnimeCard key={`PopularAnimeCard${key++}`} {...anime}/>)
                 : <div>Loading popularAnime ...</div>
             
             }

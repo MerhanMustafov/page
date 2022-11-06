@@ -1,10 +1,10 @@
-.genresWrapper{
+.anime-Genres-outer-wrapper{
             border: 2px solid rgb(0, 255, 106);
-    .genresInnerWrapper{
+    .anime-Genres-inner-wrapper{
         display: flex;
         flex-wrap: wrap;
         // width: 500px;
-        .genreBox{
+        .anime-Genres-box{
             border: 2px solid blue;
             margin: 10px;
             padding: 10px;

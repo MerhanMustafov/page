@@ -1,4 +1,6 @@
 export function Genres(){
+    let key = 1
+
     const listOfGenres = [
         "action",
         "adventure",
@@ -49,13 +51,13 @@ export function Genres(){
         "yuri",
         ]
     return (
-        <div className="genresWrapper">
-            <div className="genresInnerWrapper">
+        <div className="anime-Genres-outer-wrapper">
+            <div className="anime-Genres-inner-wrapper">
 
             {listOfGenres.length > 0
 
             ?
-             listOfGenres.map(g => <span className="genreBox">{g}</span> ) 
+             listOfGenres.map(g => <span key={`Genres${key++}`} className="anime-Genres-box">{g}</span> ) 
 
             : <div>Loading genres ...</div> }
             </div>
