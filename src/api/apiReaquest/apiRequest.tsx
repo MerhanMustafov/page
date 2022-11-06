@@ -27,3 +27,7 @@ export  function getPopularAnime(){
     return axios.get("https://gogoanime.consumet.org/popular")
     
 }
+export  function getTopAiring(){
+    return axios.get("https://gogoanime.consumet.org/top-airing")
+    
+}

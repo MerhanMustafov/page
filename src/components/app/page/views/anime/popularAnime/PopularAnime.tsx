@@ -20,7 +20,7 @@ export function PopularAnime() {
 
   return (
     <div className="popularAnimeWrapper">
-        <h2 className="">Popular anime</h2>
+        <h2 className="popularAnimeSectionTitle">Popular anime</h2>
         <div className="popularAnimeInnerWrapper">
             { data.length > 0
                 ? data.map(anime => <PopularAnimeCard {...anime}/>)

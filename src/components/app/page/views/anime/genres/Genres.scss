@@ -1,0 +1,13 @@
+.genresWrapper{
+            border: 2px solid rgb(0, 255, 106);
+    .genresInnerWrapper{
+        display: flex;
+        flex-wrap: wrap;
+        // width: 500px;
+        .genreBox{
+            border: 2px solid blue;
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+}
