@@ -1,0 +1,24 @@
+.anime-PopularAnimeCard-outer-wrapper {
+  // border: 2px solid rgb(20, 9, 9);
+  width: 150px;
+  margin: 10px;
+  .anime-PopularAnimeCard-inner-wrapper {
+    // border: 2px solid red;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .anime-PopularAnimeCard-title {
+      // border: 2px solid red;
+      font-size: 13px;
+      padding: 5px;
+    }
+    .anime-PopularAnimeCard-image {
+      border-radius: inherit;
+      width: 100%;
+      object-fit: cover;
+      height: 200px;
+    }
+  }
+}

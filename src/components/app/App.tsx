@@ -7,7 +7,6 @@ function App() {
   return (
     <BrowserRouter>
       <div  className="App">
-        <div style={{color: 'red', border: '2px solid red',}}>App</div>
         <Page />
       </div>
     </BrowserRouter>

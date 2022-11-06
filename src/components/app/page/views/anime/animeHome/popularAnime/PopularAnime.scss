@@ -1,0 +1,17 @@
+.anime-PopularAnime-outer-wrapper{
+    border: 3px solid rgb(0, 23, 128);
+    // max-width: 50%;
+    // width: 70%;
+    .anime-PopularAnime-tite{
+        background: orange;
+        color: white;
+    }
+    .anime-PopularAnime-inner-wrapper{
+    // border: 10px solid rgb(0, 128, 111);
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+
+    }
+}

@@ -1,0 +1,18 @@
+ .anime-Episodes-outer-wrapper{
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: flex-start;
+        border: 5px solid rgb(0, 255, 200);
+        // column-count: 10;
+        .anime-Episodes-page-navigation-wrapper{
+            border: 3px solid red;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: left;
+        }
+        .anime-Episodes-inner-wrapper{
+
+        }
+    }
