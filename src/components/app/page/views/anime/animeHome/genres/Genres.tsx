@@ -50,14 +50,26 @@ export function Genres(){
         "yaoi",
         "yuri",
         ]
+
+        function xScroll(e: React.WheelEvent){
+    const elToScroll = document.querySelector('.anime-Genres-inner-wrapper') as HTMLElement
+    if(e.deltaY === 100){
+        // +
+        elToScroll.scrollLeft += 150
+    }else if(e.deltaY === -100){
+        // -
+        elToScroll.scrollLeft -= 150
+    }
+  }
     return (
         <div className="anime-Genres-outer-wrapper">
-            <div className="anime-Genres-inner-wrapper">
-
+                
+                <span className="genre-text">Genres</span>
+            <div onWheel={(e) => xScroll(e)} className="anime-Genres-inner-wrapper">
             {listOfGenres.length > 0
 
             ?
-             listOfGenres.map(g => <span key={`Genres${key++}`} className="anime-Genres-box">{g}</span> ) 
+             listOfGenres.map(g => <div key={`Genres${key++}`} onWheel={(e) => xScroll(e)} className="anime-Genres-box">{g}</div> ) 
 
             : <div>Loading genres ...</div> }
             </div>

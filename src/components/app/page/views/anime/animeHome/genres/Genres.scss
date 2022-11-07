@@ -1,14 +1,35 @@
 .anime-Genres-outer-wrapper{
     grid-area: geners;
-            border: 2px solid rgb(0, 255, 106);
-    .anime-Genres-inner-wrapper{
-        display: flex;
-        flex-wrap: wrap;
-        // width: 500px;
-        .anime-Genres-box{
-            border: 2px solid blue;
-            margin: 10px;
-            padding: 10px;
+        .genre-text{
+            color: white;
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
         }
+    .anime-Genres-inner-wrapper{
+            // background: rgb(0, 0, 0);
+            // border: 22px solid rgb(0, 4, 255);
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior: contain;
+        .anime-Genres-box{
+            // border: 2px solid rgb(255, 0, 0);
+            border-radius: 20px;
+            background: rgb(0, 0, 0);
+            color: white;
+            margin: 5px;
+            padding: 3px 17px;
+            white-space: nowrap;
+            font-size: 21px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    }
+    .anime-Genres-inner-wrapper::-webkit-scrollbar{
+        height: 5px;
+    }
+    .anime-Genres-inner-wrapper::-webkit-scrollbar-thumb{
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
     }
 }

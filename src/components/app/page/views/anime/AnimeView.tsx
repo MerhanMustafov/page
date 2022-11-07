@@ -17,7 +17,6 @@ export function AnimeView() {
     <div className="anime-AnimeView-wrapper">
       {/* This navigation will lead to one of the routes below */}
       <NavigationAnime {...{ input, setInput }} />
-      <div className="anime-AnimeView-contentWrapper">
         <Routes>
           <Route path="/" element={<AnimeHome />} />
           <Route path="/detail/:animeId" element={<AnimeDetail />} />
@@ -26,7 +25,6 @@ export function AnimeView() {
             element={<AnimeEpisode />}
           />
         </Routes>
-      </div>
     </div>
   )
 }
