@@ -1,3 +1,4 @@
+import {useNavigate} from 'react-router-dom'
 interface Props {
   animeId: string
   animeTitle: string
@@ -9,10 +10,11 @@ interface Props {
 
 export function TopAiringCard(props: Props) {
   let key = 1
+  const navigateTo = useNavigate()
 
   return (
     <div className="anime-TopAiringCard-outer-wrapper">
-      <div className="anime-TopAiringCard-inner-wrapper">
+      <div className="anime-TopAiringCard-inner-wrapper" onClick={() => navigateTo(`/anime/detail/${props.animeId}`)}>
         <img className="anime-TopAiringCard-image" src={props.animeImg} alt="anime image" />
         <h2 className="anime-TopAiringCard-title">{props.animeTitle}</h2>
 

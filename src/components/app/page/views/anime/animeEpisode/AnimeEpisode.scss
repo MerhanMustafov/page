@@ -1,0 +1,42 @@
+.anime-AnimeEpisode-streaming-outer-wrapper {
+      border: 2px solid black;
+  .anime-AnimeEpisode-streaming-inner-wrapper {
+      border: 2px solid blue;
+    //   background: rgb(255, 0, 21);
+    //   background: linear-gradient(to right, rgba(255, 0, 0), rgba(0, 0, 255),green);
+    //   background: conic-gradient(rgb(0, 0, 0), rgb(97, 97, 97), rgb(0, 0, 0), rgb(255, 255, 255), rgb(0, 0, 0), rgb(156, 156, 156), rgb(0, 0, 0));
+    .anime-AnimeEpisode-iframe-outer-wrapper {
+      border: 2px solid green;
+      width: 70%;
+      margin: 0 auto;
+      .anime-AnimeEpisode-go-to-detail-page {
+        cursor: pointer;
+      }
+      .anime-AnimeEpisode-iframe-inner-wrapper {
+        border: 2px solid red;
+        // position: relative;
+        // padding-top: 56.25%;
+        aspect-ratio: 16 / 9;
+        // height: max-content;
+        // aspect-ratio: 5/4;
+        .vid {
+          // position: absolute;
+          // top: 0;
+          // right: 0;
+          // bottom: 0;
+          // left: 0;
+          display: block;
+          width: 99%;
+          height: 99%;
+          margin: 0 auto;
+          // max-width: 100% !important;
+        }
+      }
+      @media screen and (max-width: 1300px) {
+        .anime-AnimeEpisode-iframe-inner-wrapper {
+            aspect-ratio: 9 / 16;
+        }
+      }
+    }
+  }
+}
