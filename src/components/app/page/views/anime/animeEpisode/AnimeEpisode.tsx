@@ -41,14 +41,6 @@ export function AnimeEpisode() {
   return (
     <div className="anime-AnimeEpisode-outer-wrapper">
       <div className="anime-AnimeEpisode-inner-wrapper">
-        <div className="anime-AnimeEpisode-status">{data?.animeTitle}</div>
-        <img
-          className="anime-AnimeEpisode-image"
-          src={data?.animeImg}
-          alt="anime image"
-        />
-        <div className="anime-AnimeEpisode-synopsis">{data?.synopsis}</div>
-        <div className="anime-AnimeEpisode-status">{data?.status}</div>
         <div className="anime-AnimeEpisode-streaming-outer-wrapper">
           <div className="anime-AnimeEpisode-streaming-inner-wrapper">
             <div className="anime-AnimeEpisode-iframe-outer-wrapper">
@@ -72,6 +64,15 @@ export function AnimeEpisode() {
             </div>
           </div>
         </div>
+        <div className="anime-AnimeEpisode-status">{data?.animeTitle}</div>
+        <img
+          className="anime-AnimeEpisode-image"
+          src={data?.animeImg}
+          alt="anime image"
+        />
+        <div className="anime-AnimeEpisode-synopsis">{data?.synopsis}</div>
+        <div className="anime-AnimeEpisode-status">{data?.status}</div>
+        
       </div>
     </div>
   )

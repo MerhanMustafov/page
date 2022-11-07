@@ -1,5 +1,14 @@
-.anime-AnimeHome-outer-wrapper{
-    .anime-AnimeHome-inner-wrapper{
-
-    }
+.anime-AnimeHome-outer-wrapper {
+  .anime-AnimeHome-inner-wrapper {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'geners geners geners geners'
+      'popular popular topairing topairing'
+      'popular popular topairing topairing';
+    //   display: flex;
+    //   border: 20px solid green;
+    //   width: 700px;
+  }
 }

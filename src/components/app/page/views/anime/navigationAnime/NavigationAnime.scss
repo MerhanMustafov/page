@@ -3,6 +3,16 @@
 
     .anime-NavigationAnime-inner-wrapper{
         border-bottom: 3px solid black;
+        display: flex;
+        justify-content: space-between;
+        .anime-NavigationAnime-buttons-wrapper{
+            border: 3px solid red;
+        }
+        .anime-NavigationAnime-search-wrapper{
+            border: 3px solid red;
+            // flex-grow: 1;
+
+        }
 
     }
 }

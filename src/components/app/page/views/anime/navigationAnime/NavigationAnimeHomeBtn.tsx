@@ -12,7 +12,7 @@ export function NavigationAnimeHomeBtn(props: Props){
             <div className="anime-NavigationAnimeHomeBtn-innner-wrapper">
                 {/* onClick={() => props.setReload(true)} */}
 
-                <Link to="/anime" onClick={() => props.setInput('')}>Home</Link>
+                <Link className="anime-NavigationAnimeHomeBtn-btn" to="/anime" onClick={() => props.setInput('')}>Home</Link>
             </div>
 
             </div>

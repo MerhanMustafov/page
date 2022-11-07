@@ -1,10 +1,13 @@
 .anime-TopAiringCard-outer-wrapper{
+    // width: 150px;
     .anime-TopAiringCard-inner-wrapper{
+        display: flex;
+        flex-direction: column;
         .anime-TopAiringCard-image{
-
+            width: 150px;
         }
         .anime-TopAiringCard-title{
-
+            font-size: 11px;
         }
         .anime-TopAiringCard-genre{
             
