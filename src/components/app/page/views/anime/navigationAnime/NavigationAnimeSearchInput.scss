@@ -1,0 +1,11 @@
+.anime-NavigationAnimeSearchInput-outer-wrapper{
+        border: 2px solid green;
+        max-width: min-content;
+    .anime-NavigationAnimeSearchInput-inner-wrapper{
+        border: 2px solid red;
+        display: flex;
+        #anime-NavigationAnimeSearchInput-input{
+            flex-grow: 1;
+        }
+    }
+}

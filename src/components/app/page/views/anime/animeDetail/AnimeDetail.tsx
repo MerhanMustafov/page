@@ -15,11 +15,11 @@ interface AnimeDetailData {
 export function AnimeDetail(){
     const params = useParams()
     const [data, setData] = useState<AnimeDetailData>()
-    
+    console.log(params)
 
     useEffect(() => {
         params.animeId && getAnimeDetailById(params.animeId).then(res => {setData(res.data)})
-    }, [])
+    }, [params])
     return (
         <div className="anime-AnimeDetail-outer-wrapper">
             <div className="anime-AnimeDetail-inner-wrapper">

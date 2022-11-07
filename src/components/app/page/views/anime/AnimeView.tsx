@@ -5,11 +5,18 @@ import {AnimeEpisode} from './animeEpisode/AnimeEpisode'
 import {useParams} from 'react-router-dom'
 import { Routes, Route} from 'react-router-dom'
 
+import {useState, useEffect} from 'react'
+
 export function AnimeView() {
+    const [input, setInput] = useState<string>('')
+
+    // useEffect(() => {
+    //     setReload(false) 
+    // }, [reload === true])
     return (
         <>
          {/* This navigation will lead to one of the routes below */}
-        <NavigationAnime></NavigationAnime>
+        <NavigationAnime {...{input, setInput}}/>
         <Routes>
             <Route path="/" element={<AnimeHome /> }/>
         <Route path="/detail/:animeId" element={<AnimeDetail />} />
