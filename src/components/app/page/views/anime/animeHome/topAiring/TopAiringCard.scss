@@ -1,13 +1,30 @@
-.anime-TopAiringCard-outer-wrapper{
-    .anime-TopAiringCard-inner-wrapper{
-        .anime-TopAiringCard-image{
+.anime-TopAiringCard-outer-wrapper {
+//   border: 2px solid rgb(20, 9, 9);
+background: rgba(45, 45, 45, 0.8);
+  border-radius: 20px;
+  margin: 10px 30px;
+  display: flex;
+  flex-direction: column;
 
-        }
-        .anime-TopAiringCard-title{
 
-        }
-        .anime-TopAiringCard-genre{
-            
-        }
+  
+  .anime-TopAiringCard-inner-wrapper {
+       width: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    
+    .anime-TopAiringCard-image {
+      border-radius: inherit;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
     }
+    .anime-TopAiringCard-title {
+      font-size: 20px;
+      padding: 5px;
+      color: white;
+      
+    }
+  }
 }

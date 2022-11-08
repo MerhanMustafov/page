@@ -1,17 +1,25 @@
 .anime-PopularAnime-outer-wrapper{
-    border: 3px solid rgb(0, 23, 128);
-    // max-width: 50%;
-    // width: 70%;
+    grid-area: popular;
+    // border: 5px solid rgb(0, 23, 128);
+    background: rgba(0, 0, 255, 0);
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
     .anime-PopularAnime-tite{
-        background: orange;
         color: white;
     }
     .anime-PopularAnime-inner-wrapper{
     // border: 10px solid rgb(0, 128, 111);
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        width: 100%;
+        overflow-x: auto;
+        overscroll-behavior: contain;
 
+    }
+    .anime-PopularAnime-inner-wrapper::-webkit-scrollbar{
+        height: 5px;
+    }
+    .anime-PopularAnime-inner-wrapper::-webkit-scrollbar-thumb{
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
     }
 }

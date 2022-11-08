@@ -1,0 +1,22 @@
+.anime-NavigationAnimeSearchDropdownBox-outer-wrapper {
+    // border: 3px solid red;
+    background: rgba(0, 0, 0, 0.534);
+  .anime-NavigationAnimeSearchDropdownBox-inner-wrapper {
+    display: flex;
+    gap: 10px; 
+    .anime-NavigationAnimeSearchDropdownBox-img {
+      width: 10%;
+    //   height: 100px;
+      object-fit: cover;
+    }
+    .anime-NavigationAnimeSearchDropdownBox-title {
+      width: auto;
+    //   word-wrap: break-word;
+    //   overflow-wrap: break-word;
+
+    //   -webkit-hyphens: auto;
+    //   -moz-hyphens: auto;
+    //   hyphens: auto;
+    }
+  }
+}

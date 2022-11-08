@@ -1,11 +1,27 @@
-.anime-TopAiring-outer-wrapper{
-    border: 10px solid rgb(0, 113, 128);
-    width: auto;
-    .anime-TopAiring-title{
-
+.anime-TopAiring-outer-wrapper {
+//   border: 5px solid rgb(0, 9, 10);
+  border-radius: 20px;
+  grid-area: topairing;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding: 20px;
+  margin: 500px 20px 100px 20px;
+    .anime-TopAiring-title {
+        width: 100%;
+        color: white;
     }
+  .anime-TopAiring-inner-wrapper {
+    display: flex;
+        overflow-x: auto;
+        overscroll-behavior: contain;
+  }
 
-    .anime-TopAiring-inner-wrapper{
-        
+  .anime-TopAiring-inner-wrapper::-webkit-scrollbar{
+        height: 5px;
+    }
+    .anime-TopAiring-inner-wrapper::-webkit-scrollbar-thumb{
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
     }
 }

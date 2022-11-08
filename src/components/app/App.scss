@@ -1,22 +1,40 @@
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
 @import url(./page//navigation/guest/GuestNav.scss);
 @import url(./page/Page.scss);
 
-@import url(./page/views/anime/navigationAnime/NavigationAnime.scss);
-@import url(./page/views/anime/AnimeView.scss);
+// anime
+@import url(./page/views/anime/animeHome/AnimeHome.scss);
+// anime
 
+// navigationAnime
+@import url(./page/views/anime/navigationAnime/NavigationAnime.scss);
+@import url(./page/views/anime/navigationAnime/NavigationAnimeHomeBtn.scss);
+@import url(./page/views/anime/navigationAnime/NavigationAnimeSearch.scss);
+@import url(./page/views/anime/navigationAnime/NavigationAnimeSearchInput.scss);
+@import url(./page/views/anime/navigationAnime/NavigationAnimeSearchDropdown.scss);
+@import url(./page/views/anime/navigationAnime/NavigationAnimeSearchDropdownBox.scss);
+// navigationAnime
+
+// animeHome
 @import url(./page/views/anime/animeHome/popularAnime/PopularAnime.scss);
 @import url(./page/views/anime/animeHome/popularAnime/PopularAnimeCard.scss);
 @import url(./page/views/anime/animeHome/topAiring/TopAiring.scss);
 @import url(./page/views/anime/animeHome/topAiring/TopAiringCard.scss);
 
 @import url(./page/views/anime/animeHome/genres/Genres.scss);
+// animeHome
 
+
+// animeDetail
 @import url(./page/views/anime/animeDetail/AnimeDetail.scss);
 @import url(./page/views/anime/animeDetail/Episode.scss);
 @import url(./page/views/anime/animeDetail/Episodes.scss);
+// animeDetail
 
-
+// animeEpisode
 @import url(./page/views/anime/animeEpisode/AnimeEpisode.scss);
+// animeEpisode
 
 
 

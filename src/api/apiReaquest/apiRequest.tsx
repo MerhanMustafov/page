@@ -12,3 +12,6 @@ export  function getAnimeDetailById(animeId: string){
 export  function getAnimeEpisode(episodeId: string){
     return axios.get(`https://gogoanime.consumet.org/vidcdn/watch/${episodeId}`)
 }
+export  function searchAnime(animeTitle: string){
+    return axios.get(`https://gogoanime.consumet.org/search?keyw=${animeTitle}`)
+}

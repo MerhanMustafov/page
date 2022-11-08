@@ -13,6 +13,7 @@
             justify-content: left;
         }
         .anime-Episodes-inner-wrapper{
-
+            display: flex;
+            flex-wrap: wrap;
         }
     }
