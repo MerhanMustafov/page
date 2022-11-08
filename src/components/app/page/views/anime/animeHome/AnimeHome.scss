@@ -6,24 +6,31 @@
     background-size: 100% 100%;
     background-position: center;
     min-height: 100vh;
-
+    // display: block;
+    // margin: 0 auto;
+   
     
   .anime-AnimeHome-inner-wrapper {
     display: grid;
     justify-content: center;
-    grid-template-columns: 20% 20% 50px 20% 20%;
+    grid-template-columns: 20% 20% 10% 20% 20%;
     grid-template-rows: auto;
     grid-template-areas:
       'geners geners geners geners geners'
+    //   'gener-anime gener-anime gener-anime gener-anime gener-anime'
       'popular popular popular popular popular'
       'topairing topairing topairing topairing topairing';
+    //   justify-content: space-around;
+        margin: 0 auto;
+        max-width: 1920px;
+
   }
 }
 
 
 .anime-AnimeHome-outer-wrapper.slideshow{
     animation-name: slideshow;
-    animation-duration: 60s;
+    animation-duration: 30s;
     animation-iteration-count: infinite;
 
 }

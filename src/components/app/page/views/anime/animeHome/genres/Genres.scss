@@ -1,8 +1,9 @@
 .anime-Genres-outer-wrapper{
+    // border: 2px solid green;
     grid-area: geners;
         .genre-text{
             color: white;
-            font-size: 25px;
+            font-size: 17px;
             font-family: 'Courier New', Courier, monospace;
         }
     .anime-Genres-inner-wrapper{
@@ -13,23 +14,98 @@
         overscroll-behavior: contain;
         .anime-Genres-box{
             // border: 2px solid rgb(255, 0, 0);
+            cursor: pointer;
             border-radius: 20px;
-            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.904);
             color: white;
             margin: 5px;
             padding: 3px 17px;
             white-space: nowrap;
-            font-size: 21px;
+            font-size: 13px;
             font-weight: 500;
-            letter-spacing: 2px;
-            font-family: 'Courier New', Courier, monospace;
+            // letter-spacing: 1px;
+            // font-family: 'Courier New', Courier, monospace;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .anime-Genres-box.active-genre{
+            // border: 2px solid rgb(0, 4, 255);
+            background: white;
+            color: black;
+            font-size: 17px;
+            font-weight: 600;
         }
     }
     .anime-Genres-inner-wrapper::-webkit-scrollbar{
         height: 5px;
     }
     .anime-Genres-inner-wrapper::-webkit-scrollbar-thumb{
-        background: rgb(255, 255, 255);
+        background: rgba(255, 255, 255, 0.26);
         border-radius: 20px;
     }
 }
+
+
+
+
+// ****************************************
+.anime-Genres-animes-box-outer-wrapper{
+    // grid-area: gener-anime;
+        // border: 2px solid green;
+    .anime-Genres-animes-box-inner-wrapper{
+        // border: 2px solid red;
+        // margin: 10px;
+
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior: contain;
+        
+    }
+
+    .anime-Genres-animes-box-inner-wrapper::-webkit-scrollbar{
+        height: 5px;
+    }
+    .anime-Genres-animes-box-inner-wrapper::-webkit-scrollbar-thumb{
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
+    }
+
+    .anime-Genres-bts-wrapper{
+        display: grid;
+    // justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 5fr auto;
+    grid-template-areas:
+      'next'
+      'previouse';
+  
+        .next{
+            grid-area: next;
+            // height: 100%;
+            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            flex-grow: 1;
+
+        }
+        .next .next-page{
+                font-size: 30px;
+            }
+        .previouse{
+            grid-area: previouse;
+            height: 90px;
+            border: none;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            flex-grow: 1;
+            
+
+        }
+        .previouse .previouse-page{
+            font-size: 30px;
+        }
+    }
+}
+
+
+
+// ****************************************

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { searchAnime } from '../../../../../../api/apiReaquest/apiRequest'
+import { getAnimeByTitle } from '../../../../../../api/apiReaquest/apiRequest'
 
 interface AnimeSearchData {
   animeId: string
@@ -40,7 +40,7 @@ export function NavigationAnimeSearchInput(props: Props) {
               .join('+')
 
           animeTitle &&
-            searchAnime(animeTitle).then((res) => props.setData(res.data))
+            getAnimeByTitle(animeTitle).then((res) => props.setData(res.data))
           
         }
             props.setLoading(false);

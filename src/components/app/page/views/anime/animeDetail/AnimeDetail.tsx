@@ -15,7 +15,6 @@ interface AnimeDetailData {
 export function AnimeDetail(){
     const params = useParams()
     const [data, setData] = useState<AnimeDetailData>()
-    console.log(params)
 
     useEffect(() => {
         params.animeId && getAnimeDetailById(params.animeId).then(res => {setData(res.data)})
