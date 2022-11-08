@@ -21,7 +21,6 @@ export function AnimeEpisode() {
 
   const [episodeLink, setEpisodeLink] = useState<string | null>(null)
   const [data, setData] = useState<AnimeDetailData | null>(null)
-  console.log(data)
 
   useEffect(() => {
     params.animeId &&
@@ -37,7 +36,6 @@ export function AnimeEpisode() {
 
   // request and getting data from the episode view
 
-  console.log(params)
   return (
     <div className="anime-AnimeEpisode-outer-wrapper">
       <div className="anime-AnimeEpisode-inner-wrapper">
