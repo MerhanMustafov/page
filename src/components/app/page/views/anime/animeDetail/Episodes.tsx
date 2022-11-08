@@ -36,7 +36,7 @@ export function Episodes(props: Props) {
         {howManyRanges.map(
           (x, index) =>
             index !== 0 && (
-              <div id={`${1 + numberStartRange}`} onClick={(e) => setPage(e)}>
+              <div className="anime-Episodes-page-range" id={`${1 + numberStartRange}`} onClick={(e) => setPage(e)}>
                 [
                 {`${1 + numberStartRange++ * imagesPerPage} ${
                   imagesPerPage * x

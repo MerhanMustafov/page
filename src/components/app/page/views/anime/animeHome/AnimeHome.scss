@@ -1,6 +1,6 @@
 .anime-AnimeHome-outer-wrapper {
     // background: rgb(252, 0, 0);
-    background-image: url(../../../../../images/anime-bg-home-ten.jpg);
+    background-image: url(../../../../../images/anime-home/anime-bg-home-one.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -17,10 +17,8 @@
     grid-template-rows: auto;
     grid-template-areas:
       'geners geners geners geners geners'
-    //   'gener-anime gener-anime gener-anime gener-anime gener-anime'
       'popular popular popular popular popular'
       'topairing topairing topairing topairing topairing';
-    //   justify-content: space-around;
         margin: 0 auto;
         max-width: 1920px;
 
@@ -30,16 +28,17 @@
 
 .anime-AnimeHome-outer-wrapper.slideshow{
     animation-name: slideshow;
-    animation-duration: 30s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
 
 }
 
 @keyframes slideshow {
-    0%{background-image: url(../../../../../images/anime-bg-home-eleven.jpg);}
-    20%{background-image: url(../../../../../images/anime-bg-home-twelve.jpg);}
-    40%{background-image: url(../../../../../images/anime-bg-home-thirteen.jpg);}
-    60%{background-image: url(../../../../../images/anime-bg-home-fourteen.jpg);}
-    80%{background-image: url(../../../../../images/anime-bg-home-fifteen.jpg);}
-    100%{background-image: url(../../../../../images/anime-bg-home-ten.jpg);}
+    0%{background-image: url(../../../../../images/anime-home/anime-bg-home-two.jpg);}
+    50%{background-image: url(../../../../../images/anime-home/anime-bg-home-two.jpg);}
+    100%{background-image: url(../../../../../images/anime-home/anime-bg-home-three.jpg);}
+    // 60%{background-image: url(../../../../../images/anime-bg-home-fourteen.jpg);}
+    // 80%{background-image: url(../../../../../images/anime-bg-home-fifteen.jpg);}
+    // 100%{background-image: url(../../../../../images/anime-bg-home-ten.jpg);}
 }

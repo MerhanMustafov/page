@@ -1,13 +1,14 @@
 .anime-Genres-outer-wrapper{
     // border: 2px solid green;
     grid-area: geners;
+    max-width: 80%;
+    margin: 0 auto;
         .genre-text{
             color: white;
             font-size: 17px;
             font-family: 'Courier New', Courier, monospace;
         }
     .anime-Genres-inner-wrapper{
-            // background: rgb(0, 0, 0);
             // border: 22px solid rgb(0, 4, 255);
         display: flex;
         overflow-x: auto;
@@ -23,8 +24,6 @@
             white-space: nowrap;
             font-size: 13px;
             font-weight: 500;
-            // letter-spacing: 1px;
-            // font-family: 'Courier New', Courier, monospace;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
         .anime-Genres-box.active-genre{

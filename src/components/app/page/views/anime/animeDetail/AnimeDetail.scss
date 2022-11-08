@@ -1,10 +1,71 @@
 .anime-AnimeDetail-outer-wrapper {
-  border: 3px solid orange;
+//   border: 3px solid orange;
+    min-height: 100vh;
+    height: max-content;
+    background-image: url(../../../../../images/anime-bg-detail-four.jpg);
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-attachment: fixed;
+    background-size: 100% 100%;
   .anime-AnimeDetail-inner-wrapper {
-    border: 3px solid red;
+    // border: 3px solid red;
+    max-width: 1920px;
+    background: rgba(0, 0, 0, 0.288);
+
+    margin: 0px auto;
+    padding: 20px;
     .anime-AnimeDetail-infoBox {
-      border: 3px solid blue;
+        // border: 3px solid rgb(0, 255, 13);
+      display: grid;
+        align-items: flex-start;
+      grid-template-columns: 20% 1fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        'title title'
+        'img synopsis ';
+        // gap: 20px;
+      .anime-AnimeDetail-image-wrapper {
+        grid-area: img;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        .anime-AnimeDetail-image {
+          //   border: 3px solid blue;
+          width: 100%;
+        }
+        .anime-AnimeDetail-status {
+        //   border: 3px solid blue;
+          font-family: 'Courier New', Courier, monospace;
+          grid-area: status;
+        }
+        .anime-AnimeDetail-episodes-count {
+        //   border: 3px solid blue;
+          font-family: 'Courier New', Courier, monospace;
+          grid-area: epcount;
+        }
+      }
+      .anime-AnimeDetail-title {
+        // border: 3px solid blue;
+        padding: 5px 0px 15px 0;
+        grid-area: title;
+        margin: 0;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: white;
+      }
+
+      .anime-AnimeDetail-synopsis {
+        // border: 3px solid blue;
+        border-radius: 30px;
+        grid-area: synopsis;
+        margin: 20px;
+        font-size: 17px;
+        line-height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.562);
+        color: rgb(0, 0, 0);
+        padding: 10px;
+      }
     }
-   
   }
 }
