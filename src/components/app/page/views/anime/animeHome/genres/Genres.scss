@@ -2,7 +2,7 @@
     grid-area: geners;
         .genre-text{
             color: white;
-            font-size: 25px;
+            font-size: 17px;
             font-family: 'Courier New', Courier, monospace;
         }
     .anime-Genres-inner-wrapper{
@@ -19,10 +19,11 @@
             margin: 5px;
             padding: 3px 17px;
             white-space: nowrap;
-            font-size: 21px;
+            font-size: 13px;
             font-weight: 500;
-            letter-spacing: 2px;
-            font-family: 'Courier New', Courier, monospace;
+            // letter-spacing: 1px;
+            // font-family: 'Courier New', Courier, monospace;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
     }
     .anime-Genres-inner-wrapper::-webkit-scrollbar{

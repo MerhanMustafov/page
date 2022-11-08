@@ -1,8 +1,12 @@
 .anime-NavigationAnime-outer-wrapper{
-
+    background: rgb(0, 0, 0);
+    padding: 3px 0 0 0;
 
     .anime-NavigationAnime-inner-wrapper{
-        border-bottom: 3px solid black;
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 3px 0px;
+        // border-bottom: 3px solid black;
         display: flex;
         justify-content: space-between;
         .anime-NavigationAnime-buttons-wrapper{
