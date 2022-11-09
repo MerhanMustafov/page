@@ -17,7 +17,16 @@
             color: white;
             .anime-Episodes-page-range{
                 cursor: pointer;
+                    color: rgb(255, 196, 0);
+                .open-bracket, .close-bracket{
+                    // color: rgb(255, 196, 0);
+                    font-size: 17px;
+                }
 
+            }
+            .current-page-clicked{
+                font-size: 20px;
+                color: white;
             }
         }
         .anime-Episodes-inner-wrapper{
