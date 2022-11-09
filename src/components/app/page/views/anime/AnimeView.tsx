@@ -21,7 +21,7 @@ export function AnimeView() {
           <Route path="/" element={<AnimeHome />} />
           <Route path="/detail/:animeId" element={<AnimeDetail />} />
           <Route
-            path="/episode/:animeId/:episodeId"
+            path="/episode/:animeId/:episodeId/:currentPage"
             element={<AnimeEpisode />}
           />
         </Routes>

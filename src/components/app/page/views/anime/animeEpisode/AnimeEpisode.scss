@@ -32,10 +32,19 @@
           display: flex;
           flex-direction: column;
           margin: 0 auto;
-          .anime-AnimeEpisode-go-to-detail-page {
-            cursor: pointer;
-            margin-bottom: 5px;
-            color: orange;
+
+          .anime-AnimeEpisode-iframe-top-wrapper{
+            display: flex;
+            justify-content: space-between;
+            .anime-AnimeEpisode-go-to-detail-page {
+                cursor: pointer;
+                margin-bottom: 5px;
+                color: orange;
+            }
+            .anime-AnimeEpisode-current-straming-episode{
+                color: orange;  
+            }
+
           }
           .anime-AnimeEpisode-iframe-inner-wrapper {
             // border: 2px solid red;

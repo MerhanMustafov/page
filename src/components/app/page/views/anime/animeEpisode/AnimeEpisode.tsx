@@ -20,13 +20,13 @@ interface AnimeDetailData {
 export function AnimeEpisode() {
   const params = useParams()
   const location = useLocation()
-  console.log(location, 'AnimeEpisode   view')
   const navigateTo = useNavigate()
-
   const [episodeLink, setEpisodeLink] = useState<string | null>(null)
   const [data, setData] = useState<AnimeDetailData | null>(null)
 
   useEffect(() => {
+    
+
     // setData(null)
     setEpisodeLink(null)
     params.animeId &&
@@ -36,8 +36,7 @@ export function AnimeEpisode() {
         getAnimeEpisode(params.episodeId),
       ]).then((res) => {
         setData(res[0].data)
-        setEpisodeLink(res[1].data.Referer);
-        (document.getElementById(location.state.episodeId) as HTMLElement).classList.add('current-episode-clicked')
+        setEpisodeLink(res[1].data.Referer)
       })
   }, [params])
 
@@ -49,11 +48,16 @@ export function AnimeEpisode() {
         <div className="anime-AnimeEpisode-streaming-outer-wrapper">
           <div className="anime-AnimeEpisode-streaming-inner-wrapper">
             <div className="anime-AnimeEpisode-iframe-outer-wrapper">
-              <div
-                className="anime-AnimeEpisode-go-to-detail-page"
-                onClick={(e) => navigateTo(`/anime/detail/${params.animeId}`)}
-              >
-                Back to detail page
+              <div className="anime-AnimeEpisode-iframe-top-wrapper">
+                <div
+                  className="anime-AnimeEpisode-go-to-detail-page"
+                  onClick={(e) => navigateTo(`/anime/detail/${params.animeId}`)}
+                >
+                  Back ot anime detail
+                </div>
+                <div className="anime-AnimeEpisode-current-straming-episode">
+                  Episode {location.state.episodeNum}
+                </div>
               </div>
               <div className="anime-AnimeEpisode-iframe-inner-wrapper">
                 {episodeLink ? (
@@ -68,11 +72,12 @@ export function AnimeEpisode() {
                   <AnimeEpisodeLoading />
                 )}
               </div>
-              {params.animeId && data && data.episodesList?.length > 0 ? (
+              {params.animeId && data  ? (
                 <Episodes
                   {...{
                     animeId: params.animeId,
-                    episodesList: data.episodesList,
+                    episodesList: data && data.episodesList,
+                    currentEpisode: location.state.episodeNum
                   }}
                 />
               ) : null}

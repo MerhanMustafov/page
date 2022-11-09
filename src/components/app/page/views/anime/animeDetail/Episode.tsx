@@ -4,31 +4,22 @@ interface Props {
   episodeId: string
   episodeNum: string
   animeId: string | undefined
+  currentEpisode?: string
+  currentPage: number
 }
 export function Episode(props: Props) {
   const navigateTo = useNavigate()
 
-  function episodeCssStyleModify(e: React.MouseEvent) {
-    console.log(e.target)
-    const existing = document.querySelector(
-      '.current-episode-clicked',
-    ) as HTMLElement
-    existing && existing.classList.remove('current-episode-clicked')
 
-    ;(document.getElementById(props.episodeId) as HTMLElement).classList.add('current-episode-clicked')
-  }
 
   function episodeClickHandler(e: React.MouseEvent) {
-    episodeCssStyleModify(e)
-    navigateTo(`/anime/episode/${props.animeId}/${props.episodeId}`, {state: {episodeId: props.episodeId}})
+    navigateTo(`/anime/episode/${props.animeId}/${props.episodeId}/${props.currentPage}`, {state: {episodeNum: props.episodeNum}})
   }
   return (
-    <div className="anime-Episode-outer-wrapper" onClick={(e) => episodeClickHandler(e)} id={props.episodeId}>
+    <div className={`anime-Episode-outer-wrapper ${props.currentEpisode === props.episodeNum && 'current-episode-clicked'}`} onClick={(e) => episodeClickHandler(e)} id={props.episodeId}>
       <div className="anime-Episode-inner-wrapper">
         <div
-        //   onClick={(e) => episodeClickHandler(e)}
           className="anime-Episode-number"
-        //   id={props.episodeId}
         >
           {props.episodeNum}
         </div>
