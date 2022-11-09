@@ -1,0 +1,34 @@
+.anime-AnimeEpisodeLoading-outer-wrapper {
+    // border: 2px solid green;
+      height: 450px;
+  .anime-AnimeEpisodeLoading-inner-wrapper {
+    // border: 2px solid rgb(0, 55, 128);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .anime-AnimeEpisodeLoading {
+    //   border: 5px solid white;
+      font-size: 100px;
+      color: white;
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      border-radius: 100%;
+      // padding: 30px;
+
+      animation-name: loading;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      @keyframes loading {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}

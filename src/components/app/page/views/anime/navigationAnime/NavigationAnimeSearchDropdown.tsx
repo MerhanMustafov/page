@@ -14,33 +14,29 @@ interface Props {
   setInput: (i: string) => void
 }
 export function NavigationAnimeSearchDropdown(props: Props) {
- 
   return (
     // style={inputEl.value.length <= 0 ? {display: 'none'} : {display: 'block'}}
     <div className="anime-NavigationAnimeSearchDropdown-outer-wrapper">
-        {props.input.length >  0 
-        ?
+      {props.input.length > 0 ? (
         <div onClick={(e) => props.setInput('')}>Clear</div>
-        : null
-        }
+      ) : null}
       <div className="anime-NavigationAnimeSearchDropdown-inner-wrapper">
-        {props.loading ? (
-          <div>Loading ...</div>
-        ) : (
-          <>
-            {props.data.length > 0
-              ? props.data.map((animeData) => (
-                  <NavigationAnimeSearchDropdownBox
-                    {...{
-                      input: props.input,
-                      setInput: props.setInput,
-                      ...{ animeData },
-                    }}
-                  />
-                ))
-              : null}
-          </>
-        )}
+        <>
+          {props.data.length > 0 ? (
+            props.data.map((animeData) => (
+              <NavigationAnimeSearchDropdownBox
+                {...{
+                  input: props.input,
+                  setInput: props.setInput,
+                  ...{ animeData },
+                }}
+              />
+            ))
+          ) : (
+            props.input.length > 0 && props.loading && <div>Loading ...</div>
+            
+          )}
+        </>
       </div>
     </div>
   )

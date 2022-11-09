@@ -1,11 +1,25 @@
-.anime-Episode-outer-wrapper{
-    // border: 5px solid green;
-    
-    .anime-Episode-inner-wrapper{
+.anime-Episode-outer-wrapper {
+  // border: 5px solid green;
+
+  .anime-Episode-inner-wrapper {
     // border: 7px solid rgb(0, 102, 128);
     width: min-content;
     padding: 10px;
-
-        
+    .anime-Episode-number {
+      cursor: pointer;
     }
+    // .current-episode-clicked{
+    //     color: orange;
+    //     border: 1px solid white;
+    //     font-size: 20px;
+    //     padding: 0px 10px;
+    // }
+  }
+}
+
+.anime-Episode-outer-wrapper.current-episode-clicked {
+  color: orange;
+  border: 1px solid white;
+  font-size: 20px;
+  padding: 0px 10px;
 }

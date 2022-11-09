@@ -2,18 +2,37 @@
         // display: flex;
         // flex-wrap: wrap;
         // justify-content: flex-start;
-        border: 5px solid rgb(0, 255, 200);
+        // border: 5px solid rgb(0, 255, 200);
+        margin: 30px;
         // column-count: 10;
         .anime-Episodes-page-navigation-wrapper{
-            border: 3px solid red;
+            // border: 3px solid red;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.123);
+            padding: 0  5px 10px 0;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             gap: 10px;
             justify-content: left;
+            color: white;
+            .anime-Episodes-page-range{
+                cursor: pointer;
+                    color: orange;
+                .open-bracket, .close-bracket{
+                    // color: rgb(255, 196, 0);
+                    font-size: 17px;
+                }
+
+            }
+            .current-page-clicked{
+                font-size: 20px;
+                color: white;
+            }
         }
         .anime-Episodes-inner-wrapper{
             display: flex;
             flex-wrap: wrap;
+            color: white;
+            // color: white;
         }
     }

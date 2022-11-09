@@ -1,5 +1,4 @@
 import React, { useEffect, useState} from 'react'
-import { useNavigate} from 'react-router-dom'
 import {getAnimesByGenre} from '../../../../../../../api/apiReaquest/apiRequest'
 import {GenresAnimeCard} from './GenresAnimeCard'
 interface SingleAnimeData {
@@ -87,6 +86,7 @@ export function Genres(){
 
 
   function activeGener(e: React.MouseEvent){
+    const key=1
     const existing = document.querySelector('.active-genre') as HTMLElement;
 
     existing && existing.classList.remove('active-genre');
@@ -126,7 +126,7 @@ export function Genres(){
                     {
                         data.length > 0 
                         ?
-                        data.map(animeData => <GenresAnimeCard  {...{...{animeData}, xScroll,}}/> )
+                        data.map(animeData => <GenresAnimeCard key={`GenresAnimeCard${key++}`} {...{...{animeData}, xScroll,}}/> )
                         : <div>LOADING ...</div>
                     }
                     {data.length === 20 

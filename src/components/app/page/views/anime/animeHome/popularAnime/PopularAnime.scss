@@ -1,13 +1,13 @@
 .anime-PopularAnime-outer-wrapper{
-    grid-area: popular;
     // border: 5px solid rgb(0, 23, 128);
+    grid-area: popular;
     background: rgba(0, 0, 255, 0);
     border-radius: 20px;
     margin: 20px;
     padding: 20px;
     .anime-PopularAnime-tite{
-        color: white;
         font-family: 'Courier New', Courier, monospace;
+        color: white;
     }
     .anime-PopularAnime-inner-wrapper{
     // border: 10px solid rgb(0, 128, 111);
