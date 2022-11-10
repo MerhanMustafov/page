@@ -18,7 +18,7 @@ export function NavigationAnimeSearchDropdown(props: Props) {
     // style={inputEl.value.length <= 0 ? {display: 'none'} : {display: 'block'}}
     <div className="anime-NavigationAnimeSearchDropdown-outer-wrapper">
       {props.input.length > 0 ? (
-        <div onClick={(e) => props.setInput('')}>Clear</div>
+        <div className="anime-NavigationAnimeSearchDropdown-clear" onClick={(e) => props.setInput('')}>CLEAR</div>
       ) : null}
       <div className="anime-NavigationAnimeSearchDropdown-inner-wrapper">
         <>

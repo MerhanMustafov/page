@@ -57,8 +57,6 @@ export function NavigationAnimeSearchInput(props: Props) {
           value={props.input}
           onChange={(e) => {
             props.setInput(e.target.value);
-            
-            
           }}
         />
         <i
