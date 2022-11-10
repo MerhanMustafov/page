@@ -16,7 +16,6 @@ interface Props{
 }
 
 export function NavigationAnimeSearch(props: Props) {
-//   const [input, setInput] = useState<string>('')
   const [data, setData] = useState<AnimeSearchData[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 

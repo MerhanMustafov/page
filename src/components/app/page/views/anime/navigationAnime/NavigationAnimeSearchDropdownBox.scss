@@ -1,22 +1,39 @@
 .anime-NavigationAnimeSearchDropdownBox-outer-wrapper {
-    // border: 3px solid red;
-    background: rgba(0, 0, 0, 0.534);
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+    border-radius: 20px ;
   .anime-NavigationAnimeSearchDropdownBox-inner-wrapper {
+    // border: 2px solid white;
     display: flex;
     gap: 10px; 
+    //   border-radius: inherit;
     .anime-NavigationAnimeSearchDropdownBox-img {
-      width: 10%;
+      width: 20%;
     //   height: 100px;
-      object-fit: cover;
+    padding: 1px 0px 5px 5px; 
+      object-fit: scale-down;
+      border-radius: inherit;
     }
     .anime-NavigationAnimeSearchDropdownBox-title {
       width: auto;
+      color: orange;
+      padding: 3px 10px 0 0; 
+        font-size: 13px;
+        transition: font-size 2s;
+      
     //   word-wrap: break-word;
     //   overflow-wrap: break-word;
 
     //   -webkit-hyphens: auto;
     //   -moz-hyphens: auto;
     //   hyphens: auto;
+    }
+  }
+  .anime-NavigationAnimeSearchDropdownBox-inner-wrapper:hover{
+    // background: rgba(255, 0, 0, 0.411);
+    background: rgba(255, 0, 0, 0.151);
+    .anime-NavigationAnimeSearchDropdownBox-title{
+        font-size: 16px;
     }
   }
 }
