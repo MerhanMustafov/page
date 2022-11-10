@@ -3,6 +3,10 @@
 @import url(./page//navigation/guest/GuestNav.scss);
 @import url(./page/Page.scss);
 
+
+// ANIME
+@import url(./page/views/anime/AnimeView.scss);
+
 // anime
 @import url(./page/views/anime/animeHome/AnimeHome.scss);
 // anime
@@ -37,8 +41,21 @@
 @import url(./page/views/anime/animeEpisode/AnimeEpisode.scss);
 @import url(./page/views/anime/animeEpisode/AnimeEpisodeLoading.scss);
 // animeEpisode
+// ANIME
 
 
+// MOVIE
+@import url(./page/views/movie/MovieView.scss);
+
+// MovieNavigation
+@import url(./page/views/movie/movieNavigation/MovieNavigation.scss);
+// MovieNavigation
+
+// 
+@import url(./page/views/movie/movieHome/MovieHome.scss);
+
+
+// MOVIE
 
 
 
