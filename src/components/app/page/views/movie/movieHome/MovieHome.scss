@@ -1,9 +1,9 @@
 .movie-MovieHome-outer-wrapper {
   // background: rgba(0, 0, 255, 0.479);
-  min-height: 100vh;
+  min-height: 200vh;
   background-image: url(../../../../../images/movie-home/movie-bg-home-two.jpg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: fixed;
   background-attachment: fixed;
   background-size: 100% 100%;
 
@@ -55,56 +55,7 @@
           }
         }
 
-        .movie-MovieHome-search-outer-wrapper {
-            grid-area: movie-search-bar;
-            position: relative;
-          .movie-MovieHome-search-inner-wrapper {
-            border: 2px solid rgb(4, 252, 25);
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            #movie-MovieHome-search-by-name {
-              // border: 20px solid rgb(4, 252, 240);
-              // background:rgb(255, 255, 255);
-              background: transparent;
-              border: none;
-              outline: none;
-              flex-grow: 1;
-              font-size: 30px;
-              color: rgb(252, 252, 252);
-              padding: 0px 20px;
-              // width: 100%;
-            }
-            .movie-MovieHome-search-icon {
-              cursor: pointer;
-              font-size: 25px;
-              color: white;
-              padding: 0px 10px;
-            }
-          }
-          .movie-MovieHome-search-dropdown-outer-wrapper{
-            position: absolute;
-            left: 0;
-            right: 0;
-            border: 2px solid pink;
-            .movie-MovieHome-search-dropdown-inner-wrapper{
-                .movie-MovieHome-movie-box-wrapper{
-                    color: WHITE;
-                    display: flex;
-                    gap: 10px;
-                    .movie-MovieHome-movie-image{
-                        width: 10%;
-                    }
-                    .movie-MovieHome-movie-title{
-                        color: white;
-                        font-size: 20px;
-                        padding: 3px 0px 0px 10px;
-                    }
-                }
-            }
-          }
-        }
+        
       }
     }
   }

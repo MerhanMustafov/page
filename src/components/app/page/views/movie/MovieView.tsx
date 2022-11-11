@@ -13,12 +13,12 @@ export class MovieView extends React.Component {
     }
   }
   componentDidMount() {
-    this.setState({componentName: 'MovieView on MOUNT', componentSecName: 'MV ON MOUNT'})
+    // this.setState({componentName: 'MovieView on MOUNT', componentSecName: 'MV ON MOUNT'})
   }
 
 
   componentDidUpdate(): void {
-    console.log(this.state, 'ON----UPDATE componentDidUpdate 2')
+    // console.log(this.state, 'ON----UPDATE componentDidUpdate 2')
   }
 
 
