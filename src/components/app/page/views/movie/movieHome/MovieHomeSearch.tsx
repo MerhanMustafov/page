@@ -1,5 +1,6 @@
-import { Component } from 'react'
-import { getMoviesByTitle } from '../../../../../../api/movieApi/movieApi'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import {getMoviesByTitle} from '../../../../../../api/movieApi/movieApi'
 interface MovieData {
   // "adult": false,
   backdrop_path: string
@@ -21,127 +22,149 @@ interface MovieData {
   vote_count: number
 }
 
-interface State {
-  input: string
-  movieType: string
-  moviesData: MovieData[]
-  error: string
-}
 
-export class MovieHomeSearch extends Component<{}, State> {
-  constructor(props: any) {
-    super(props)
+export function MovieHomeSearch() {
+  let key = 1
+  const [input, setInput] = useState<string>('')
+  const [movieType, setMovieType] = useState<string>('movie'.trim())
+  const [dropDownMovies, setDropDownMovies] = useState<MovieData[]>([])
+  const [movieId, setMovieId] = useState<number | null>(null)
+  const [movieTitle, setMovieTitle] = useState<string | null>(null)
+  const [error, setError] = useState<string>('')
+  const navigateTo = useNavigate()
 
-    this.state = {
-      input: '',
-      movieType: 'movie'.trim(),
-      moviesData: [],
-      error: '',
+  useEffect(() => {
+    if (movieId) {
+      setInput('');
+      setDropDownMovies([]);
+      navigateTo(`/movie/${movieId}/${movieTitle}`, {state: {movieType}});
     }
+  }, [movieId])
+
+  function onSearchClick(e: React.MouseEvent) {
+    setMovieTitle(generateMovieTitleQueryFormat(input))
+    getMoviesByTitle(movieType, generateMovieTitleQueryFormat(input))
+      .then((res) => setDropDownMovies(res.data.results))
+      .catch((err) => setError('NO SUCH MOVIE'))
   }
 
-  componentDidMount(): void {}
-  componentDidUpdate(): void {}
-
-  render() {
-    let key = 1
-    const onSearchClick = (e: React.MouseEvent) => {
-      let { input, movieType } = this.state
-      const movieTitle = input
-        .split(' ')
-        .filter((w) => w.length > 0)
-        .map((w) => w.trim().toLocaleLowerCase())
-        .join('+')
-      getMoviesByTitle(movieType, movieTitle)
-        .then((res) => {
-            if(res.data.results.length <= 0){
-                this.setState({ moviesData: res.data.results })
-                throw new Error("No Results");
-            }
-            this.setState({ error: '' })
-                this.setState({ moviesData: res.data.results })
-        })
-        .catch(
-          (err) => (
-            this.setState({ error: err.message }),
-            setTimeout(() => {
-            this.setState({ error: '' })
-            }, 2000)
-          ),
-        )
-    }
-
-    const onMovieClick = (e: React.MouseEvent) => {
-        // console.log((e.target as HTMLElement).id)
-    } 
-    return (
-      <div className="movie-MovieHomeSearch-search-outer-wrapper">
-        <label htmlFor="movie" style={{ color: 'red' }}>
-          {' '}
-          movie
-        </label>
+  return (
+    <div className="movie-MovieHomeSearch-search-outer-wrapper">
+      <label
+        htmlFor="movie"
+        style={{ color: 'orange' }}
+        onClick={() => setMovieType('movie'.trim())}
+      >
+        {' '}
+        movie
+      </label>
+      <input
+        type="radio"
+        id="movie"
+        name="type"
+        value="movie"
+        defaultChecked
+        onClick={() => setMovieType('movie'.trim())}
+      />
+      <label
+        htmlFor="tv"
+        style={{ color: 'orange' }}
+        onClick={() => setMovieType('tv'.trim())}
+      >
+        {' '}
+        tv show
+      </label>
+      <input
+        type="radio"
+        id="tv"
+        name="type"
+        value="tv"
+        onClick={() => setMovieType('tv'.trim())}
+      />
+      <div className="movie-MovieHomeSearch-search-inner-wrapper">
         <input
-          type="radio"
-          id="movie"
-          name="type"
-          value="movie"
-          defaultChecked
-          onClick={() => this.setState({ movieType: 'movie'.trim() })}
+          onChange={(e) => setInput(e.target.value)}
+          value={input}
+          type="text"
+          id="movie-MovieHomeSearch-search-by-name"
+          placeholder="search movie or tv show"
         />
-        <label htmlFor="tv" style={{ color: 'red' }}>
-          {' '}
-          tv show
-        </label>
-        <input
-          type="radio"
-          id="tv"
-          name="type"
-          value="tv"
-          onClick={() => this.setState({ movieType: 'tv'.trim() })}
-        />
-        <div className="movie-MovieHomeSearch-search-inner-wrapper">
-          <input
-            onChange={(e) => this.setState({ input: e.target.value })}
-            value={this.state.input}
-            type="text"
-            id="movie-MovieHomeSearch-search-by-name"
-          />
-          <i
-            onClick={(e) => this.state.input.length > 0 && onSearchClick(e)}
-            className="fa-solid fa-magnifying-glass movie-MovieHomeSearch-search-icon"
-          ></i>
-        </div>
-        {this.state.moviesData.length > 0 ? (
-          <div className="movie-MovieHomeSearch-search-dropdown-outer-wrapper">
-            <div className="movie-MovieHomeSearch-search-dropdown-inner-wrapper">
-                {this.state.moviesData.map((data) => (
-                <div onClick={(e) => onMovieClick(e)} key={`movie-MovieHomeSearch-search-dropdown${key++}`} id={`${data.id}`} className="movie-MovieHomeSearch-movie-box-wrapper">
-                  <img
-                    src={
-                      data.backdrop_path
-                        ? `https://image.tmdb.org/t/p/w500/${data.backdrop_path}`
-                        : `https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image.png`
-                    }
-                    alt="movie image"
-                    className="movie-MovieHomeSearch-movie-image"
+        <i
+          onClick={(e) => input.length > 0 && onSearchClick(e)}
+          className="fa-solid fa-magnifying-glass movie-MovieHomeSearch-search-icon"
+        ></i>
+      </div>
+      {dropDownMovies.length > 0 ? (
+        <div className="movie-MovieHomeSearch-search-dropdown-outer-wrapper">
+          <div className="movie-MovieHomeSearch-search-dropdown-inner-wrapper">
+            <div
+              onClick={(e) => {
+                setInput('')
+                setDropDownMovies([])
+              }}
+              className="movie-MovieHomeSearch-search-dropdown-clear"
+            >
+              Clear
+            </div>
+            {dropDownMovies.map((data) => (
+              <div
+                onClick={(e) => setMovieId(Number((e.target as HTMLElement).id))}
+                key={`movie-MovieHomeSearch-search-dropdown${key++}`}
+                id={`${data.id}`}
+                className="movie-MovieHomeSearch-movie-box-wrapper"
+              >
+                <img
+                  src={
+                    data.backdrop_path
+                      ? `https://image.tmdb.org/t/p/w500/${data.backdrop_path}`
+                      : `https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image.png`
+                  }
+                  alt="movie image"
+                  className="movie-MovieHomeSearch-movie-image"
+                  id={`${data.id}`}
+                />
+                <div
+                  id={`${data.id}`}
+                  className="movie-MovieHomeSearch-movie-info-outer-wrapper"
+                >
+                  <div
                     id={`${data.id}`}
-                  />
-                  <div id={`${data.id}`} className="movie-MovieHomeSearch-movie-title">
-                    {data.original_title
-                      ? data.original_title
-                      : data.original_name}
+                    className="movie-MovieHomeSearch-movie-info-inner-wrapper"
+                  >
+                    <div
+                      id={`${data.id}`}
+                      className="movie-MovieHomeSearch-movie-title"
+                    >
+                      {data.original_title
+                        ? data.original_title
+                        : data.original_name}
+                    </div>
+                    <div
+                      id={`${data.id}`}
+                      title={data.overview}
+                      className="movie-MovieHomeSearch-movie-overview"
+                    >
+                      {data.overview}
+                    </div>
                   </div>
                 </div>
-              ))}
-                
-              
-            </div>
+              </div>
+            ))}
           </div>
-        ) : this.state.error.length > 0 && <div style={{color: 'white', position: 'absolute'}}>NO SUCH MOVIE</div>}
+        </div>
+      ) : (
+        error.length > 0 && (
+          <div style={{ color: 'white', position: 'absolute' }}>{error}</div>
+        )
+      )}
+    </div>
+  )
+}
 
-
-        
-      </div>
-    )
-  }
+function generateMovieTitleQueryFormat(input: string): string {
+  return input
+    .split(' ')
+    .filter((word) => word.length > 0)
+    .map((word) => word.trim().toLocaleLowerCase())
+    .join('+')
 }
