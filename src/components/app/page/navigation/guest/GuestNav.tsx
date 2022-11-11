@@ -6,6 +6,7 @@ export function GuestNavigation(){
         <div className="page-GuestNavigation-inner-wrapper">
             <Link className="page-GuestNavigation-home-btn" to="/">Home</Link>
             <Link className="page-GuestNavigation-anime-btn" to="/anime">Anime</Link>
+            <Link className="page-GuestNavigation-movie-btn" to="/movie">Movie</Link>
         </div>
         </div>
     );

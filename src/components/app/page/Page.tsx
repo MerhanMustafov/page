@@ -3,8 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { HomeView } from './views/home/HomeView'
 import { AnimeView } from './views/anime/AnimeView'
 import {GuestNavigation} from './navigation/guest/GuestNav'
-import {AnimeDetail} from './views/anime/animeDetail/AnimeDetail'
-
+import {MovieView} from './views/movie/MovieView'
 export function Page() {
 
     
@@ -15,7 +14,7 @@ export function Page() {
         {/* This navigation will lead to one of the routes below in the main 
         [/anime/*]/ 
         [/manga/*]/ 
-        [/movies/*]/ 
+        [/movie/*]/ 
         [/images/*]*/ }
             <GuestNavigation/>
       </header>
@@ -24,6 +23,7 @@ export function Page() {
         <Routes>
           <Route path="/" element={<HomeView />} />
           <Route path="/anime/*" element={<AnimeView />} />
+          <Route path="/movie/*" element={<MovieView />} />
         </Routes>
       </main>
       <footer className="Footer"></footer>

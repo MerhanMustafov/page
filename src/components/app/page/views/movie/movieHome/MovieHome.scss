@@ -1,0 +1,62 @@
+.movie-MovieHome-outer-wrapper {
+  // background: rgba(0, 0, 255, 0.479);
+  min-height: 200vh;
+  background-image: url(../../../../../images/movie-home/movie-bg-home-two.jpg);
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+  .movie-MovieHome-inner-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+
+    .movie-MovieHome-content-outer-wrapper {
+      border: 2px solid red;
+      .movie-MovieHome-content-inner-wrapper {
+        border: 2px solid blue;
+        display: grid;
+        grid-template-columns: 80%;
+        grid-template-rows: auto;
+        grid-template-areas:
+          'movie-content-navigation'
+          'movie-search-bar';
+        justify-content: center;
+        gap: 10px;
+
+        .movie-MovieHome-content-navigation-wrapper {
+          border: 2px solid white;
+          grid-area: movie-content-navigation;
+          display: grid;
+          grid-template-columns: 33% 33% 33%;
+          grid-template-rows: auto;
+          grid-template-areas: 'movie-popular movie-toprated movie-upcomming';
+          justify-content: center;
+
+          .movie-MovieHome-btn {
+            border: 2px solid red;
+            font-size: 20px;
+            // padding: 0px 10px;
+
+            color: white;
+            text-decoration: none;
+          }
+          .movie-MovieHome-btn:hover {
+            background: rgba(95, 95, 95, 0.438);
+          }
+          .movie-MovieHome-popular-movies {
+            grid-area: movie-popular;
+          }
+          .movie-MovieHome-toprated-movies {
+            grid-area: movie-toprated;
+          }
+          .movie-MovieHome-upcomming-movies {
+            grid-area: movie-upcomming;
+          }
+        }
+
+        
+      }
+    }
+  }
+}
