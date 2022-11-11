@@ -8,7 +8,7 @@ export function MovieView() {
     <div className="movie-MovieView-wrapper">
       <MovieNavigation />
       <Routes>
-        <Route path="/" element={<MovieHome />} />
+        <Route path="/*" element={<MovieHome />} />
         {/* <Route path="/:movieTitle" element={<MovieHome />}/> */}
       </Routes>
     </div>

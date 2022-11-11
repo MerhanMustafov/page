@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {
-  getMoviesByTitle,
-  getMovieDetailById,
-  getMovieTrailerById,
-} from '../../../../../../api/movieApi/movieApi'
+import {getMoviesByTitle} from '../../../../../../api/movieApi/movieApi'
 interface MovieData {
   // "adult": false,
   backdrop_path: string
@@ -26,60 +22,30 @@ interface MovieData {
   vote_count: number
 }
 
-interface SingleMovieDetail {
-  adult: boolean
-  backdrop_path: string
-  genres: { id: number; name: string }[]
-  homepage: string
-  id: number
-  imdb_id: string
-  original_language: string
-  name: string
-  original_title: string
-  original_name: string
-  overview: string
-  popularity: number
-  poster_path: string
-  release_date: string
-  spoken_languages: { english_name: string; iso_639_1: string; name: string }[]
-  status: string
-  tagline: string
-  title: string
-  vote_average: number
-  vote_count: number
-}
-interface MovieTrailer {
-  key: string
-  site: string
-  size: number
-  type: string
-  official: boolean
-  published_at: string
-}
-
-interface State {
-  input: string
-  movieType: string
-  moviesData: MovieData[]
-  error: string
-  currentMovieId: number | null
-  currentMovieDetailData: SingleMovieDetail | null
-  currentMovieTrailers: MovieTrailer[]
-  currentMovieTitle: string | null
-  createMovieTitleQueryString: (input: string) => string
-}
 
 export function MovieHomeSearch() {
-    let key=1
+  let key = 1
   const [input, setInput] = useState<string>('')
   const [movieType, setMovieType] = useState<string>('movie'.trim())
   const [dropDownMovies, setDropDownMovies] = useState<MovieData[]>([])
+  const [movieId, setMovieId] = useState<number | null>(null)
+  const [movieTitle, setMovieTitle] = useState<string | null>(null)
   const [error, setError] = useState<string>('')
+  const navigateTo = useNavigate()
+
+  useEffect(() => {
+    if (movieId) {
+      setInput('');
+      setDropDownMovies([]);
+      navigateTo(`/movie/${movieId}/${movieTitle}`, {state: {movieType}});
+    }
+  }, [movieId])
 
   function onSearchClick(e: React.MouseEvent) {
+    setMovieTitle(generateMovieTitleQueryFormat(input))
     getMoviesByTitle(movieType, generateMovieTitleQueryFormat(input))
-    .then(res => setDropDownMovies(res.data.results))
-    .catch(err => setError('NO SUCH MOVIE'))
+      .then((res) => setDropDownMovies(res.data.results))
+      .catch((err) => setError('NO SUCH MOVIE'))
   }
 
   return (
@@ -132,14 +98,17 @@ export function MovieHomeSearch() {
         <div className="movie-MovieHomeSearch-search-dropdown-outer-wrapper">
           <div className="movie-MovieHomeSearch-search-dropdown-inner-wrapper">
             <div
-              onClick={(e) => {setInput(''); setDropDownMovies([])}}
+              onClick={(e) => {
+                setInput('')
+                setDropDownMovies([])
+              }}
               className="movie-MovieHomeSearch-search-dropdown-clear"
             >
               Clear
             </div>
             {dropDownMovies.map((data) => (
               <div
-                // onClick={(e) => onMovieClick(e)}
+                onClick={(e) => setMovieId(Number((e.target as HTMLElement).id))}
                 key={`movie-MovieHomeSearch-search-dropdown${key++}`}
                 id={`${data.id}`}
                 className="movie-MovieHomeSearch-movie-box-wrapper"
@@ -185,9 +154,7 @@ export function MovieHomeSearch() {
         </div>
       ) : (
         error.length > 0 && (
-          <div style={{ color: 'white', position: 'absolute' }}>
-            {error}
-          </div>
+          <div style={{ color: 'white', position: 'absolute' }}>{error}</div>
         )
       )}
     </div>

@@ -1,0 +1,39 @@
+.movie-MovieHomeDetails-movie-detail-outer-wrapper {
+  border-radius: 20px;
+  margin: 100px 0px;
+  .movie-MovieHomeDetails-movie-detail-inner-wrapper {
+    // border-radius: inherit;
+    background: rgb(211, 195, 195);
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(0, 0, 0);
+    .movie-MovieHomeDetails-trailers-wrapper {
+      .movie-MovieHomeDetails-movie-trailers-wrapper {
+        .movie-MovieHomeDetails-movie-detail-video {
+          border-radius: 40px;
+          aspect-ratio: 16 / 9;
+          width: 99%;
+          height: 100%;
+        }
+      }
+    }
+    .movie-MovieHomeDetails-movie-detail-title {
+      // border: 2px solid green;
+      text-align: center;
+      padding: 5px 0px 10px 0px;
+      font-size: 30px;
+      font-weight: 600;
+    }
+    .movie-MovieHomeDetails-movie-detail-image {
+      width: 50%;
+      // height: auto;
+      margin: 0px 10px 10px 5px;
+      float: left;
+      // clear: both;
+    }
+    .movie-MovieHomeDetails-movie-detail-overview {
+      font-size: 25px;
+      margin: 0px 10px 20px 5px;
+      // color: orange;
+    }
+  }
+}

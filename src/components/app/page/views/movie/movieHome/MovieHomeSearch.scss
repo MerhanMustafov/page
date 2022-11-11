@@ -96,39 +96,3 @@
 
 
 
-.movie-MovieHomeSearch-movie-detail-outer-wrapper{
-    border-radius: 50px;
-    margin: 100px 0px;
-    .movie-MovieHomeSearch-movie-detail-inner-wrapper{
-    border-radius: inherit;
-        background: rgb(211, 195, 195);
-        font-family: 'Courier New', Courier, monospace;
-            color: rgb(0, 0, 0);
-        .movie-MovieHomeSearch-movie-detail-title{
-            // border: 2px solid green;
-            text-align: center;
-            padding: 5px 0px 10px 0px;
-            font-size: 30px;
-            font-weight: 600;
-
-        }
-        .movie-MovieHomeSearch-movie-detail-image{
-            width: 50%;
-            margin: 0px 10px 10px 5px;
-            float: left;
-        }
-        .movie-MovieHomeSearch-movie-detail-overview{
-            font-size: 20px;
-            margin: 0px 10px 20px 5px;
-            // color: orange;
-        }
-        .movie-MovieHomeSearch-movie-detail-video{
-            aspect-ratio: 16 / 9;
-            width: 99%;
-            height: 100%;
-    border-radius: inherit;
-
-        }
-
-    }
-}

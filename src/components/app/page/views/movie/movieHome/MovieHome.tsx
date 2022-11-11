@@ -30,9 +30,9 @@ export function MovieHome() {
               </Link>
             </div>
             <MovieHomeSearch />
-            {/* <Routes>
-                <Route path="/movieId/movieTitle" element={<MovieHomeDetails />}/>
-              </Routes> */}
+            <Routes>
+                <Route path="/:movieId/:movieTitle" element={<MovieHomeDetails />}/>
+              </Routes>
           </div>
         </div>
       </div>
