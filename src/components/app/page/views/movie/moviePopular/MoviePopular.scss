@@ -1,0 +1,16 @@
+.movie-MoviePopular-outer-wrapper {
+  border: 2px solid blue;
+  .movie-MoviePopular-title {
+    border: 2px solid red;
+    font-size: 20px;
+    color: white;
+  }
+  .movie-MoviePopular-inner-wrapper {
+    border: 2px solid green;
+    background: rgba(0, 0, 0, 0.918);
+    // margin:  0 auto;
+    text-align: center;
+    // display: flex;
+    // flex-wrap: wrap;
+  }
+}

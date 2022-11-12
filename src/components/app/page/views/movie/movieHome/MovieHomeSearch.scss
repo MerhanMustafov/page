@@ -29,6 +29,7 @@
   .movie-MovieHomeSearch-search-dropdown-outer-wrapper {
     border: 2px solid pink;
     position: absolute;
+    z-index: 111;
     left: 0;
     right: 0;
     max-height: 70vh;

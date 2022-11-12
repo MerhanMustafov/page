@@ -12,3 +12,7 @@ export function getMovieDetailById(type: string,movieId: number){
 export function getMovieTrailerById(type: string, movieId: number){
     return axios.get(`https://api.themoviedb.org/3/${type}/${movieId}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
 }
+export function getPopular(type: string, page: number){
+    // console.log(`https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=${page}`)
+    return axios.get(`https://api.themoviedb.org/3/${type}/popular?api_key=${process.env.REACT_APP_TMDB_API_KEY}&page=${page}`)
+}
