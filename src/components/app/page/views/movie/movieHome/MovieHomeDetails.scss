@@ -3,35 +3,100 @@
   margin: 100px 0px;
   .movie-MovieHomeDetails-movie-detail-inner-wrapper {
     // border-radius: inherit;
-    background: rgb(211, 195, 195);
+    // border: 2px solid red;
+    width: 80%;
+    background: rgba(170, 170, 170, 0.808);
     font-family: 'Courier New', Courier, monospace;
     color: rgb(0, 0, 0);
-    .movie-MovieHomeDetails-trailers-wrapper {
-      .movie-MovieHomeDetails-movie-trailers-wrapper {
-        .movie-MovieHomeDetails-movie-detail-video {
-          border-radius: 40px;
-          aspect-ratio: 16 / 9;
-          width: 99%;
-          height: 100%;
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'MovieHomeDetails-image       MovieHomeDetails-info  '
+      'MovieHomeDetails-image       MovieHomeDetails-info      '
+      'MovieHomeDetails-image     MovieHomeDetails-info    '
+      'MovieHomeDetails-image     MovieHomeDetails-info    '
+      'MovieHomeDetails-title       MovieHomeDetails-title   '
+      'MovieHomeDetails-overview    MovieHomeDetails-overview  ';
+    
+    justify-content: center ;
+    align-items: flex-start;
+    margin: 0 auto;
+
+    .movie-MovieHomeDetails-movie-detail-info-wrapper {
+        grid-area: MovieHomeDetails-info ;
+        padding: 15px;
+        // border: 1px solid red;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "geners"
+        "release-date"
+        "season"
+        "next"
+        ;
+        gap: 5px;
+      .movie-MovieHomeDetails-movie-detail-status-wrapper {
+        // border: 1px solid red;
+        grid-area: next;
+        font-size: 12px;
+        .movie-MovieHomeDetails-movie-detail-next-episode-air-date {
+        }
+        .movie-MovieHomeDetails-movie-detail-next-episode-name {
         }
       }
+    .movie-MovieHomeDetails-movie-detail-release-date {
+      grid-area: release-date;
+    //   border: 1px solid red;
+      font-size: 12px;
     }
+    .movie-MovieHomeDetails-movie-detail-SE-wrapper {
+      display: flex;
+      grid-area: season;
+    //   border: 1px solid red;
+      .movie-MovieHomeDetails-movie-detail-seasons {
+      }
+      .movie-MovieHomeDetails-movie-detail-episodes {
+      }
+    }
+    .movie-MovieHomeDetails-movie-detail-geners-wrapper {
+    //   border: 1px solid red;
+      grid-area: geners;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    //   gap: 15px;
+      font-size: 15px;
+      .movie-MovieHomeDetails-movie-detail-gener {
+        cursor: auto;
+        border-right: 1px solid rgb(255, 255, 255);
+        border-left: 1px solid rgb(255, 255, 255);
+        padding: 1px 5px;
+      }
+    }
+    }
+
     .movie-MovieHomeDetails-movie-detail-title {
-      // border: 2px solid green;
+      grid-area: MovieHomeDetails-title;
+      //   border: 2px solid green;
       text-align: center;
       padding: 5px 0px 10px 0px;
       font-size: 30px;
       font-weight: 600;
+      .movie-MovieHomeDetails-movie-detail-language {
+        color: rgb(110, 110, 110);
+      }
     }
     .movie-MovieHomeDetails-movie-detail-image {
-      width: 50%;
-      // height: auto;
-      margin: 0px 10px 10px 5px;
-      float: left;
-      // clear: both;
+      grid-area: MovieHomeDetails-image;
+      width: 97%;
+      object-fit: scale-down;
+      margin: auto 10px 10px 5px;
     }
     .movie-MovieHomeDetails-movie-detail-overview {
-      font-size: 25px;
+      grid-area: MovieHomeDetails-overview;
+      font-size: 20px;
       margin: 0px 10px 20px 5px;
       // color: orange;
     }
