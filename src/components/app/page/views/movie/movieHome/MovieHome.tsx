@@ -31,7 +31,7 @@ export function MovieHome() {
             </div>
             <MovieHomeSearch />
             <Routes>
-                <Route path="/:movieId/:movieTitle" element={<MovieHomeDetails />}/>
+                <Route path="/:movieId/:movieType" element={<MovieHomeDetails />}/>
               </Routes>
           </div>
         </div>
