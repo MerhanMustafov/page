@@ -45,7 +45,7 @@ export function MovieHomeSearch() {
     const movie_id = (e.target as HTMLElement).id;
     setInput('');
         setDropDownMovies([]);
-    navigateTo(`/movie/${(e.target as HTMLElement).id}/${movieType}`)
+    navigateTo(`/movie/${(e.target as HTMLElement).id}/${movieType}`, { replace: false,preventScrollReset: true })
     
   }
 

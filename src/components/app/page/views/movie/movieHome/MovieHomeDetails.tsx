@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import {
-  getMovieDetailById,
-  getMovieTrailerById,
-} from '../../../../../../api/movieApi/movieApi'
+import { useState, useEffect } from 'react';
+import { useParams, Routes, Route } from 'react-router-dom';
+import {MovieHomeDetailVideos} from './MovieHomeDetailVideos'
+import {getMovieDetailById} from '../../../../../../api/movieApi/movieApi';
 
 interface SingleMovieDetail {
   adult: boolean
@@ -30,11 +28,11 @@ interface SingleMovieDetail {
   number_of_episodes: string
   number_of_seasons: string
   next_episode_to_air: {
-air_date: string,
-episode_number: number,
-id: 4008054,
-name: string,
-}
+    air_date: string
+    episode_number: number
+    id: 4008054
+    name: string
+  }
 }
 
 interface MovieTrailer {
@@ -47,9 +45,10 @@ interface MovieTrailer {
 }
 
 export function MovieHomeDetails() {
-    let key=1
+  let key = 1
   const [movieData, setMovieData] = useState<SingleMovieDetail | null>(null)
   const [trailerData, setTrailerData] = useState<MovieTrailer[]>([])
+  const [reload, setReload] = useState<boolean>(true)
   const params = useParams()
 
   useEffect(() => {
@@ -58,20 +57,18 @@ export function MovieHomeDetails() {
     //   Number(params.movieId),
     //   params.movieType,
     // ]
-    if(params.movieType && params.movieId)
-      Promise.all([
-        getMovieDetailById(params.movieType, Number(params.movieId)),
-        getMovieTrailerById(params.movieType, Number(params.movieId)),
-      ]).then(
-        (res) => (
+    if(params.movieType && params.movieId){
+        getMovieDetailById(params.movieType, Number(params.movieId)).then(res => setMovieData(res.data))
 
-          setMovieData(res[0].data),
-          setTrailerData(
-            res[1].data.results
-          )
-        )
-        
-      )
+    }
+    // if (params.movieType && params.movieId)
+    //   Promise.all([
+        // getMovieTrailerById(params.movieType, Number(params.movieId)).then(res => )
+    //   ]).then(
+        // (res) => (
+        //   setMovieData(res[0].data), setTrailerData(res[1].data.results)
+        // ),
+    //   )
     // }
   }, [params])
 
@@ -80,15 +77,17 @@ export function MovieHomeDetails() {
       {movieData ? (
         <div className="movie-MovieHomeDetails-movie-detail-outer-wrapper">
           <div className="movie-MovieHomeDetails-movie-detail-inner-wrapper">
-
-
             <div className="movie-MovieHomeDetails-movie-detail-title">
+          
+
               {movieData.name ||
                 movieData.original_title ||
-                movieData.original_name} <span className="movie-MovieHomeDetails-movie-detail-language" >[{movieData.original_language}]</span>
+                movieData.original_name}{' '}
+              <span className="movie-MovieHomeDetails-movie-detail-language">
+                [{movieData.original_language}]
+              </span>
             </div>
-           
-            
+
             <img
               src={
                 movieData.backdrop_path
@@ -98,54 +97,72 @@ export function MovieHomeDetails() {
               alt="movie image"
               className="movie-MovieHomeDetails-movie-detail-image"
             />
-            
 
             <div className="movie-MovieHomeDetails-movie-detail-overview">
-                   {movieData.overview}
+              {movieData.overview}
             </div>
 
-
-
-
-            
             <div className="movie-MovieHomeDetails-movie-detail-info-wrapper">
-                 <div className="movie-MovieHomeDetails-movie-detail-release-date">{params.movieType === 'movie'.trim() ? 'released:' : 'since:'} {movieData.release_date || movieData.first_air_date}</div>
-                {movieData.number_of_seasons && movieData.number_of_episodes
-            && <div className="movie-MovieHomeDetails-movie-detail-SE-wrapper">
-                <div className="movie-MovieHomeDetails-movie-detail-seasons">S{movieData.number_of_seasons}</div>
-                <div className="movie-MovieHomeDetails-movie-detail-episodes">/E{movieData.number_of_episodes}</div>
-            </div>
-            }
+              <div className="movie-MovieHomeDetails-movie-detail-release-date">
+                {params.movieType === 'movie'.trim() ? 'released:' : 'since:'}{' '}
+                {movieData.release_date || movieData.first_air_date}
+              </div>
+              {movieData.number_of_seasons && movieData.number_of_episodes && (
+                <div className="movie-MovieHomeDetails-movie-detail-SE-wrapper">
+                  <div className="movie-MovieHomeDetails-movie-detail-seasons">
+                    S{movieData.number_of_seasons}
+                  </div>
+                  <div className="movie-MovieHomeDetails-movie-detail-episodes">
+                    /E{movieData.number_of_episodes}
+                  </div>
+                </div>
+              )}
 
-                <div className="movie-MovieHomeDetails-movie-detail-geners-wrapper">
-                {movieData.genres.length > 0 && movieData.genres.map(g => <div className="movie-MovieHomeDetails-movie-detail-gener" id={`${g.id}`}>{g.name}</div> )}
-            </div>
-               
-            {movieData.next_episode_to_air ?
-            <div className="movie-MovieHomeDetails-movie-detail-status-wrapper">
-                <div className="movie-MovieHomeDetails-movie-detail-status">next ep. on: {movieData.next_episode_to_air.air_date }</div>
-                {movieData.next_episode_to_air.name &&
-                
-                <div className="movie-MovieHomeDetails-movie-detail-next-episode-name">{movieData.next_episode_to_air.name}</div>
-                }
-            </div>
-            : 
-            <div className="movie-MovieHomeDetails-movie-detail-status-wrapper">
-                <div className="movie-MovieHomeDetails-movie-detail-status">status: { 'finished' }</div>
-            </div>
-            }
+              <div className="movie-MovieHomeDetails-movie-detail-geners-wrapper">
+                {movieData.genres.length > 0 &&
+                  movieData.genres.map((g) => (
+                    <div
+                    key={`movie-MovieHomeDetails-movie-detail-geners${key++}`}
+                      className="movie-MovieHomeDetails-movie-detail-gener"
+                      id={`${g.id}`}
+                    >
+                      {g.name}
+                    </div>
+                  ))}
+              </div>
 
+              {movieData.next_episode_to_air ? (
+                <div className="movie-MovieHomeDetails-movie-detail-status-wrapper">
+                  <div className="movie-MovieHomeDetails-movie-detail-status">
+                    next ep. on: {movieData.next_episode_to_air.air_date}
+                  </div>
+                  {movieData.next_episode_to_air.name && (
+                    <div className="movie-MovieHomeDetails-movie-detail-next-episode-name">
+                      {movieData.next_episode_to_air.name}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="movie-MovieHomeDetails-movie-detail-status-wrapper">
+                  <div className="movie-MovieHomeDetails-movie-detail-status">
+                    status: {'finished'}
+                  </div>
+                </div>
+              )}
             </div>
-           
           </div>
         </div>
+    
       ) : (
         <div>LOADING ...</div>
       )}
+      <Routes>
+        <Route path="/" element={<MovieHomeDetailVideos />} />
+      </Routes>
+      
     </>
   )
 }
-
 
 //  {trailerData.length > 0 && (
 //                 <div className="movie-MovieHomeDetails-movie-trailers-wrapper">
