@@ -1,0 +1,17 @@
+.movie-MoviePaginate-outer-wrapper{
+    background: black;
+    .movie-MoviePaginate-inner-wrapper{
+        // display: flex;
+        // flex-wrap: wrap;
+        color: white;
+        .movie-MoviePaginate-page{
+            display: inline-block;
+            padding: 5px;
+        }
+        .movie-MoviePaginate-current{
+            color: orange;
+            border: 2px solid white;
+            padding: 0px 7px;
+        }
+    }
+}

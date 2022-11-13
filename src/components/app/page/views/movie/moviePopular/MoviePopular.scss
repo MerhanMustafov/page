@@ -1,0 +1,23 @@
+.movie-MoviePopular-outer-wrapper {
+  border: 2px solid blue;
+  background-image: url(../../../../../images/anime-bg-detail-four.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  .movie-MoviePopular-title {
+    border: 2px solid red;
+    font-size: 20px;
+    color: white;
+  }
+  .movie-MoviePopular-inner-wrapper {
+    border: 2px solid green;
+    // background: rgb(0, 15, 34);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.719), rgb(12, 13, 29), rgba(0, 0, 0, 0.76));
+//   background: linear-gradient(to top, black, black, black, transparent, transparent, transparent, transparent);
+
+    // margin:  0 auto;
+    text-align: center;
+    // display: flex;
+    // flex-wrap: wrap;
+  }
+}

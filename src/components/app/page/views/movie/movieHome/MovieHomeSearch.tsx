@@ -21,12 +21,15 @@ interface MovieData {
   vote_average: number
   vote_count: number
 }
+interface Props {
+    movieType: string
+    setMovieType: (i: string) => void
+}
 
-
-export function MovieHomeSearch() {
+export function MovieHomeSearch(props: Props) {
   let key = 1
   const [input, setInput] = useState<string>('')
-  const [movieType, setMovieType] = useState<string>('movie'.trim())
+  
   const [dropDownMovies, setDropDownMovies] = useState<MovieData[]>([])
   const [movieId, setMovieId] = useState<number | null>(null)
   const [movieTitle, setMovieTitle] = useState<string | null>(null)
@@ -36,7 +39,7 @@ export function MovieHomeSearch() {
 
   function onSearchClick(e: React.MouseEvent) {
     setMovieTitle(generateMovieTitleQueryFormat(input))
-    getMoviesByTitle(movieType, generateMovieTitleQueryFormat(input))
+    getMoviesByTitle(props.movieType, generateMovieTitleQueryFormat(input))
       .then((res) => setDropDownMovies(res.data.results) )
       .catch((err) => setError('NO SUCH MOVIE'))
   }
@@ -45,43 +48,14 @@ export function MovieHomeSearch() {
     const movie_id = (e.target as HTMLElement).id;
     setInput('');
         setDropDownMovies([]);
-    navigateTo(`/movie/${(e.target as HTMLElement).id}/${movieType}`, { replace: false,preventScrollReset: true })
+    navigateTo(`/movie/${(e.target as HTMLElement).id}/${props.movieType}`, { replace: false,preventScrollReset: true })
     
   }
 
   return (
     <div className="movie-MovieHomeSearch-search-outer-wrapper">
-      <label
-        htmlFor="movie"
-        style={{ color: 'orange' }}
-        onClick={() => setMovieType('movie'.trim())}
-      >
-        {' '}
-        movie
-      </label>
-      <input
-        type="radio"
-        id="movie"
-        name="type"
-        value="movie"
-        defaultChecked
-        onClick={() => setMovieType('movie'.trim())}
-      />
-      <label
-        htmlFor="tv"
-        style={{ color: 'orange' }}
-        onClick={() => setMovieType('tv'.trim())}
-      >
-        {' '}
-        tv show
-      </label>
-      <input
-        type="radio"
-        id="tv"
-        name="type"
-        value="tv"
-        onClick={() => setMovieType('tv'.trim())}
-      />
+    
+      
       <div className="movie-MovieHomeSearch-search-inner-wrapper">
         <input
           onChange={(e) => setInput(e.target.value)}
