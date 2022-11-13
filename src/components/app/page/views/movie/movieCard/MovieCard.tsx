@@ -1,3 +1,4 @@
+import {useNavigate} from 'react-router-dom'
 interface MovieData {
   adult: boolean
   backdrop_path: string
@@ -15,9 +16,17 @@ interface MovieData {
   vide: boolean
   vote_average: number
   vote_count: number
+
+  section?: string
+  movieType: string
 }
 
 export function MovieCard(props: MovieData) {
+    const navigateTo = useNavigate()
+
+     function getMovieId(e: React.MouseEvent): number{
+        return Number((e.target as HTMLElement).id.split('-')[1])
+    }
   return (
     <div className="movie-MovieCard-outer-wrapper">
       <div className="movie-MovieCard-inner-wrapper">
@@ -36,7 +45,7 @@ export function MovieCard(props: MovieData) {
         </div>
 
         <div className="movie-MovieCard-info-wrapper">
-          <div className="movie-MovieCard-title">
+          <div onClick={() => navigateTo(`/movie/${props.id}/${props.movieType}`)} className="movie-MovieCard-title" id={`MovieCard-${props.id}`}>
             {props.original_title || props.original_name}
           </div>
 
@@ -48,7 +57,11 @@ export function MovieCard(props: MovieData) {
           </div> */}
 
           <div className="movie-MovieCard-date">
-            since: {props.first_air_date || props.release_date}
+            {props.section && props.section === 'upcoming'.trim() 
+            ? 'release data: '
+            : 'released: '
+            }
+             {props.first_air_date || props.release_date}
           </div>
         </div>
       </div>

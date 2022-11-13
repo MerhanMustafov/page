@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MovieCard } from '../movieCard/MovieCard'
-import { getPopular } from '../../../../../../api/movieApi/movieApi'
+import { getUpcoming } from '../../../../../../api/movieApi/movieApi'
 import {MoviePaginate} from '../paginate/MoviePaginate';
 interface MovieData {
   adult: boolean
@@ -30,13 +30,13 @@ interface MoviePopularState {
 interface Props {
     movieType: string
 }
-export function MoviePopular(props: Props) {
+export function MovieUpcoming(props: Props) {
   let key = 1
   const [data, setData] = useState<MoviePopularState>({
     currentPage: 1,
     movies: [],
     totalPages: null,
-    section: 'popular'.trim()
+    section: 'upcoming'.trim()
   })
   // const [currentPage, setCurrentPage] = useState<number>(1)
   // const [totalPages, setTotalPages] = useState<number>()
@@ -44,7 +44,7 @@ export function MoviePopular(props: Props) {
 
   useEffect(() => {
     if (params.type && params.currentPage) {
-      getPopular(params.type, Number(params.currentPage)).then((res) =>
+      getUpcoming(params.type, Number(params.currentPage)).then((res) =>
         setData((prevState: MoviePopularState) => ({ ...prevState,
           currentPage: Number(params.currentPage),
           movies: res.data.results,
@@ -54,9 +54,9 @@ export function MoviePopular(props: Props) {
     }
   }, [params])
   return (
-    <div className="movie-MoviePopular-outer-wrapper">
-      <div className="movie-MoviePopular-title">Popular </div>
-      <div className="movie-MoviePopular-inner-wrapper">
+    <div className="movie-MovieUpcoming-outer-wrapper">
+      <div className="movie-MovieUpcoming-title">Upcoming </div>
+      <div className="movie-MovieUpcoming-inner-wrapper">
         {data.movies.length > 0 ? (
           data.movies.map((movie) => (
             <MovieCard key={`MovieCard${key++}`} {...{...movie, section: data.section, movieType: props.movieType}} />

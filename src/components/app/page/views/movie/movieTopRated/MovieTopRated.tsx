@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MovieCard } from '../movieCard/MovieCard'
-import { getPopular } from '../../../../../../api/movieApi/movieApi'
+import { getTopRated } from '../../../../../../api/movieApi/movieApi'
 import {MoviePaginate} from '../paginate/MoviePaginate';
 interface MovieData {
   adult: boolean
@@ -20,7 +20,7 @@ interface MovieData {
   vote_count: number
 }
 
-interface MoviePopularState {
+interface MoviePopularTopRated{
   currentPage: number
   movies: MovieData[]
   totalPages: number | null
@@ -30,13 +30,13 @@ interface MoviePopularState {
 interface Props {
     movieType: string
 }
-export function MoviePopular(props: Props) {
+export function MovieTopRated(props: Props) {
   let key = 1
-  const [data, setData] = useState<MoviePopularState>({
+  const [data, setData] = useState<MoviePopularTopRated>({
     currentPage: 1,
     movies: [],
     totalPages: null,
-    section: 'popular'.trim()
+    section: 'topRated'.trim()
   })
   // const [currentPage, setCurrentPage] = useState<number>(1)
   // const [totalPages, setTotalPages] = useState<number>()
@@ -44,8 +44,8 @@ export function MoviePopular(props: Props) {
 
   useEffect(() => {
     if (params.type && params.currentPage) {
-      getPopular(params.type, Number(params.currentPage)).then((res) =>
-        setData((prevState: MoviePopularState) => ({ ...prevState,
+      getTopRated(params.type, Number(params.currentPage)).then((res) =>
+        setData((prevState: MoviePopularTopRated) => ({ ...prevState,
           currentPage: Number(params.currentPage),
           movies: res.data.results,
           totalPages: res.data.total_pages,
@@ -54,18 +54,18 @@ export function MoviePopular(props: Props) {
     }
   }, [params])
   return (
-    <div className="movie-MoviePopular-outer-wrapper">
-      <div className="movie-MoviePopular-title">Popular </div>
-      <div className="movie-MoviePopular-inner-wrapper">
+    <div className="movie-MovieTopRated-outer-wrapper">
+      <div className="movie-MovieTopRated-title">Top Rated {props.movieType} </div>
+      <div className="movie-MovieTopRated-inner-wrapper">
         {data.movies.length > 0 ? (
           data.movies.map((movie) => (
-            <MovieCard key={`MovieCard${key++}`} {...{...movie, section: data.section, movieType: props.movieType}} />
+            <MovieCard key={`MovieCard${key++}`}  {...{...movie, section: data.section, movieType: props.movieType}} />
           ))
         ) : (
           <div>Loading ...</div>
         )}
       </div>
-      <MoviePaginate {...{...data, movieType: props.movieType, section: data.section}}/> 
+      <MoviePaginate {...{...data, movieType: props.movieType, section:data.section}}/> 
     </div>
   )
 }

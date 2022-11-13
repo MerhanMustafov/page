@@ -4,6 +4,8 @@ import { MovieHomeSearch } from './MovieHomeSearch'
 import { MovieHomeDetails } from './MovieHomeDetails'
 import {MovieType} from './MovieType'
 import {MoviePopular} from '../moviePopular/MoviePopular'
+import {MovieTopRated} from '../movieTopRated/MovieTopRated'
+import {MovieUpcoming } from '../movieUpcoming/MovieUpcoming' 
 export function MovieHome() {
     const [movieType, setMovieType] = useState<string>('movie'.trim())
   return (
@@ -14,19 +16,19 @@ export function MovieHome() {
             <div className="movie-MovieHome-content-navigation-wrapper">
               <Link
                 className="movie-MovieHome-popular-movies movie-MovieHome-btn"
-                to={`/movie/popular/${movieType}`}
+                to={`/movie/popular/${movieType}/1`}
               >
                 Popular {movieType}
               </Link>
               <Link
                 className="movie-MovieHome-toprated-movies movie-MovieHome-btn"
-                to="/#"
+                to={`/movie/topRated/${movieType}/1`}
               >
                 Top Rated {movieType}
               </Link>
               <Link
                 className="movie-MovieHome-upcomming-movies movie-MovieHome-btn"
-                to="/#"
+                to={`/movie/upcoming/${movieType}/1`}
               >
                 Upcomming
               </Link>
@@ -34,8 +36,10 @@ export function MovieHome() {
             <MovieType {...{movieType, setMovieType}}/>
             <MovieHomeSearch {...{movieType, setMovieType}}/>
             <Routes>
-                <Route path="/:movieId/:movieType/*" element={<MovieHomeDetails />}/>
-                <Route path="/popular/:type" element={<MoviePopular />}/>
+                <Route path="/:movieId/:movieType/*" element={<MovieHomeDetails  />}/>
+                <Route path="/popular/:type/:currentPage" element={<MoviePopular {...{movieType}}/>}/>
+                <Route path="/topRated/:type/:currentPage" element={<MovieTopRated {...{movieType}}/>}/>
+                <Route path="/upcoming/:type/:currentPage" element={<MovieUpcoming {...{movieType: 'movie'.trim()}}/>}/>
               </Routes>
           </div>
         </div>
