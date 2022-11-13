@@ -23,7 +23,7 @@ interface MovieData {
 interface MoviePopularState {
   currentPage: number
   movies: MovieData[]
-  totalPages: number | null
+  totalPages: number
   section: string
 }
 
@@ -35,7 +35,7 @@ export function MovieUpcoming(props: Props) {
   const [data, setData] = useState<MoviePopularState>({
     currentPage: 1,
     movies: [],
-    totalPages: null,
+    totalPages: 0,
     section: 'upcoming'.trim()
   })
   // const [currentPage, setCurrentPage] = useState<number>(1)
@@ -54,18 +54,22 @@ export function MovieUpcoming(props: Props) {
     }
   }, [params])
   return (
-    <div className="movie-MovieUpcoming-outer-wrapper">
-      <div className="movie-MovieUpcoming-title">Upcoming </div>
+    <div className="movie-MovieUpcoming-outer-wrapper  movie-section-top">
+      {/* <div className="movie-MovieUpcoming-title">Upcoming </div> */}
+      
       <div className="movie-MovieUpcoming-inner-wrapper">
         {data.movies.length > 0 ? (
           data.movies.map((movie) => (
-            <MovieCard key={`MovieCard${key++}`} {...{...movie, section: data.section, movieType: props.movieType}} />
+            <MovieCard key={`MovieCard${key++}`} {...{...movie, section: data.section, movieType: 'movie'.trim()}} />
           ))
         ) : (
           <div>Loading ...</div>
         )}
       </div>
-      <MoviePaginate {...{...data, movieType: props.movieType, section: data.section}}/> 
+      {data.totalPages > 0
+      
+      && <MoviePaginate {...{...data, movieType: props.movieType, section: data.section}}/> 
+      }
     </div>
   )
 }

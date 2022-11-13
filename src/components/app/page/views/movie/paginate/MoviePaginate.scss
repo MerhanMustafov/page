@@ -1,17 +1,36 @@
 .movie-MoviePaginate-outer-wrapper{
-    background: black;
+    // background: blue;
+    border-top: 1px solid white;
+    margin: 0px;
     .movie-MoviePaginate-inner-wrapper{
         // display: flex;
         // flex-wrap: wrap;
         color: white;
+        text-align: center;
         .movie-MoviePaginate-page{
             display: inline-block;
-            padding: 5px;
+            margin: 1px;
+            padding: 5px 10px;
+            background: rgb(0, 0, 0);
+            color: orange;
+            // font-size: 10px;
+            cursor: pointer;
+        }
+        .movie-MoviePaginate-page:hover{
+            transition: font-size 1s ease-in-out;
+            // padding: 7px 10px;
+            // font-size: 25px;
+            position: relative;
+            bottom: -10px;
         }
         .movie-MoviePaginate-current{
-            color: orange;
-            border: 2px solid white;
-            padding: 0px 7px;
+            border: 1px solid white;
+            // border-radius: 50px;
+            padding: 0px 20px;
+            transition: padding 2s;
+            font-size: 25px;
+            position: relative;
+            bottom: -10px;
         }
     }
 }
