@@ -4,17 +4,30 @@
 
     .anime-NavigationAnime-inner-wrapper{
         // border-bottom: 3px solid black;
-        padding: 3px 0px;
-        display: flex;
+        // padding: 3px 0px;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "NavigationAnime-buttons NavigationAnime-search"
+        // " "
+        ;
         justify-content: space-between;
-        margin: 0 auto;
+        // flex-direction: column;
+        // justify-content: space-between;
         max-width: 1920px;
+        margin: 0 auto;
         .anime-NavigationAnime-buttons-wrapper{
+            grid-area: NavigationAnime-buttons;
+            // flex-grow: 1;
             // border: 3px solid red;
         }
         .anime-NavigationAnime-search-wrapper{
-            // border: 3px solid red;
+            grid-area: NavigationAnime-search;
+            // border: 8px solid red;
             // flex-grow: 1;
+            // display: flex;
+            // width: 95%;
 
         }
 

@@ -69,3 +69,83 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1000px) {
+    .anime-AnimeDetail-outer-wrapper {
+  .anime-AnimeDetail-inner-wrapper {
+    .anime-AnimeDetail-infoBox {
+        align-items: center;
+      .anime-AnimeDetail-image-wrapper {
+        .anime-AnimeDetail-image {
+          width: 100%;
+        }
+        .anime-AnimeDetail-status {
+          font-size: 17px;
+        }
+        .anime-AnimeDetail-episodes-count {
+          font-size: 13px;
+        }
+      }
+      .anime-AnimeDetail-title {
+        padding: 5px 0px 15px 0;
+        font-size: 20px;
+      }
+
+      .anime-AnimeDetail-synopsis {
+        margin: 20px;
+        font-size: 12px;
+        line-height: 22px;
+        padding: 12px;
+      }
+    }
+  }
+}
+    
+}
+@media screen and (max-width: 800px) {
+    .anime-AnimeDetail-outer-wrapper {
+  .anime-AnimeDetail-inner-wrapper {
+    .anime-AnimeDetail-infoBox {
+      grid-template-areas:
+        'title title'
+        'img img '
+        'synopsis synopsis ';
+      .anime-AnimeDetail-image-wrapper {
+        width: 30%;
+        margin: 0 auto;
+        .anime-AnimeDetail-status {
+          font-size: 10px;
+        }
+        .anime-AnimeDetail-episodes-count {
+          font-size: 8px;
+        }
+      }
+      .anime-AnimeDetail-title {
+        text-align: center;
+      }
+      .anime-AnimeDetail-synopsis {
+        font-size: 11px;
+      }
+    }
+  }
+}
+    
+}
+@media screen and (max-width: 600px) {
+    .anime-AnimeDetail-outer-wrapper {
+  .anime-AnimeDetail-inner-wrapper {
+    .anime-AnimeDetail-infoBox {
+      grid-template-areas:
+        'title title'
+        'img img '
+        'synopsis synopsis ';
+      .anime-AnimeDetail-image-wrapper {
+        width: 60%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+    
+}

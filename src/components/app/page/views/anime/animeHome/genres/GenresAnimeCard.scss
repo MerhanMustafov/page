@@ -1,35 +1,11 @@
 .anime-GenresAnimeCard-outer-wrapper {
-    display: block;
 //   border: 2px solid rgb(20, 9, 9);
-  border-radius: 20px;
-  margin: 0px 5px;
-//   padding: 0px 10px;
   .anime-GenresAnimeCard-inner-wrapper {
-        width: 200px;
-    // border: 2px solid red;
-    background: linear-gradient(to top, black, black, black, transparent, transparent, transparent, transparent);
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0px;
-    
-    .anime-GenresAnimeCard-title {
-      // border: 2px solid red;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 13px;
-    //   white-space: nowrap;
-      padding: 5px;
-      color: white;
-        white-space: wrap;
-    }
     .anime-GenresAnimeCard-image {
-      border-radius: inherit;
-      width: 100%;
-      height: 170px;
-    //   padding: 15px; 
-
-    // max-width: 500px;
-      object-fit: scale-down;
+      
+    }
+    .anime-GenresAnimeCard-title {
+      
     }
   }
 }
