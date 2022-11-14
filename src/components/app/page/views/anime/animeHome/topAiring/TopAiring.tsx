@@ -35,7 +35,7 @@ export function TopAiring() {
             ?
             data.map(anime => <TopAiringCard key={`TopAiringCard${key++}`} {...anime} /> )
             
-            : <div>Loading ... TopAiring  </div> }
+            : <div className="anime-home-loading">Loading ...</div> }
         </div>
     </div>
   );

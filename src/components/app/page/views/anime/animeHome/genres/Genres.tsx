@@ -127,7 +127,7 @@ export function Genres(){
                         data.length > 0 
                         ?
                         data.map(animeData => <GenresAnimeCard key={`GenresAnimeCard${key++}`} {...{...{animeData}, xScroll,}}/> )
-                        : <div>LOADING ...</div>
+                        : <div className="anime-home-loading">Loading ...</div>
                     }
                     {data.length === 20 
                     ?  

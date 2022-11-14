@@ -1,16 +1,16 @@
 .anime-AnimeHome-outer-wrapper {
-    // background: rgb(252, 0, 0);
-    background-image: url(../../../../../images/anime-home/anime-bg-home-one.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    background-position: center;
-    min-height: 100vh;
-    // display: block;
-    // margin: 0 auto;
-   
-    
+  // background: rgb(252, 0, 0);
+  background-image: url(../../../../../images/anime-home/anime-bg-home-10.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-size: cover;
+  background-position: fixed;
+  min-height: 100vh;
+  margin: 0 auto;
+
   .anime-AnimeHome-inner-wrapper {
+    // border: 5px solid rgb(128, 0, 0);
     display: grid;
     justify-content: center;
     grid-template-columns: 20% 20% 10% 20% 28%;
@@ -19,27 +19,208 @@
       'geners geners geners geners geners'
       'popular popular popular popular popular'
       'topairing topairing topairing topairing topairing';
-        margin: 0 auto;
-        max-width: 2000px;
-        // gap: 30px;
+    margin: 0 auto;
+    max-width: 2000px;
+    // min-height: caalc(3*1000px);
+    // align-items: flex-start;
+    // justify-content: baseline;
+    // min-height: calc(3* 105vh);
+    min-height: calc(1400px);
+    width: 97%;
 
+    .anime-PopularAnime-outer-wrapper,
+    .anime-TopAiring-outer-wrapper,
+    .anime-Genres-outer-wrapper,
+    .anime-Genres-animes-box-outer-wrapper {
+      //   border: 5px solid rgb(0, 23, 128);
+      .anime-PopularAnime-tite,
+      .anime-TopAiring-title,
+      .genre-text {
+        font-family: 'Courier New', Courier, monospace;
+        // color: rgb(163, 0, 0);
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .anime-PopularAnime-inner-wrapper,
+      .anime-TopAiring-inner-wrapper,
+      .anime-Genres-inner-wrapper,
+      .anime-Genres-animes-box-inner-wrapper {
+        //   border: 5px solid rgb(255, 208, 0);
+        display: flex;
+        overflow-x: auto;
+        overflow-y: visible;
+        position: relative;
+        // height: auto;
+
+        overscroll-behavior: contain;
+        min-height: 150px;
+        // height: max-content;
+        // padding: 100px 0;
+        .anime-home-loading {
+          color: white;
+          font-size: 17px;
+          font-weight: 900;
+          letter-spacing: 2px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: tramslate(-50%, -50%);
+        }
+        .anime-PopularAnimeCard-outer-wrapper,
+        .anime-TopAiringCard-outer-wrapper,
+        .anime-GenresAnimeCard-outer-wrapper {
+          //   border-right: 2px solid white;
+          //   border-bottom: 1px solid white;
+          border-top: none;
+          display: block;
+          //   border-radius: 20px;
+          // align-self: flex-start;
+          align-self: flex-end;
+
+          margin: 0px 30px;
+          .anime-PopularAnimeCard-inner-wrapper,
+          .anime-TopAiringCard-inner-wrapper,
+          .anime-GenresAnimeCard-inner-wrapper {
+            width: 170px;
+            // border: 2px solid green;
+            // height: min-content;
+            background: linear-gradient(
+              to top,
+              black,
+              black,
+              black,
+              transparent,
+              transparent,
+              transparent,
+              transparent,
+              transparent
+            );
+            // border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 5px 10px;
+            margin: 50px 0 0 0;
+            // transform: perspective(400px) rotateY(20deg);
+            // position: relative;
+            // bottom: -50px;
+            // z-index: 2000;
+            .anime-PopularAnimeCard-image,
+            .anime-TopAiringCard-image,
+            .anime-GenresAnimeCard-image {
+              border-radius: inherit;
+              //   border: 2px solid red;
+              height: 170px;
+              object-fit: scale-down;
+              transform: perspective(400px) rotateY(20deg);
+              position: relative;
+              top: -10px;
+
+              animation: image-flip;
+              animation-duration: 3s;
+              animation-direction: normal;
+              // transform: perspective(400px) rotateY(0deg);
+            }
+
+            .anime-PopularAnimeCard-title,
+            .anime-TopAiringCard-title,
+            .anime-GenresAnimeCard-title {
+              font-family: Verdana, Geneva, Tahoma, sans-serif;
+              font-size: 11px;
+              //   padding: 5px;
+              color: white;
+              white-space: wrap;
+            }
+            .anime-PopularAnimeCard-title:hover,
+            .anime-TopAiringCard-title:hover,
+            .anime-GenresAnimeCard-title:hover {
+              cursor: pointer;
+              color: orange;
+            }
+          }
+          .anime-PopularAnimeCard-inner-wrapper:hover,
+          .anime-TopAiringCard-inner-wrapper:hover,
+          .anime-GenresAnimeCard-inner-wrapper:hover {
+            .anime-PopularAnimeCard-image,
+            .anime-TopAiringCard-image,
+            .anime-GenresAnimeCard-image {
+              transition: transform 1s;
+              transform: perspective(400px) rotateY(0deg) scale(1.1);
+              position: relative;
+              top: -20px;
+            }
+          }
+        }
+      }
+      .anime-PopularAnime-inner-wrapper::-webkit-scrollbar,
+      .anime-TopAiring-inner-wrapper::-webkit-scrollbar,
+      .anime-Genres-inner-wrapper::-webkit-scrollbar,
+      .anime-Genres-animes-box-inner-wrapper::-webkit-scrollbar {
+        height: 3px;
+      }
+      .anime-PopularAnime-inner-wrapper::-webkit-scrollbar-thumb,
+      .anime-TopAiring-inner-wrapper::-webkit-scrollbar-thumb,
+      .anime-Genres-inner-wrapper::-webkit-scrollbar-thumb,
+      .anime-Genres-animes-box-inner-wrapper::-webkit-scrollbar-thumb {
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
+      }
+    }
   }
 }
 
-
-.anime-AnimeHome-outer-wrapper.slideshow{
-    animation-name: slideshow;
-    animation-duration: 5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-
+.anime-AnimeHome-outer-wrapper.slideshow {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-10.jpg);
+  animation-name: slideshow;
+  animation-duration: 70s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+   min-height: 100vh;
 }
 
 @keyframes slideshow {
-    0%{background-image: url(../../../../../images/anime-home/anime-bg-home-two.jpg);}
-    50%{background-image: url(../../../../../images/anime-home/anime-bg-home-two.jpg);}
-    100%{background-image: url(../../../../../images/anime-home/anime-bg-home-three.jpg);}
-    // 60%{background-image: url(../../../../../images/anime-bg-home-fourteen.jpg);}
-    // 80%{background-image: url(../../../../../images/anime-bg-home-fifteen.jpg);}
-    // 100%{background-image: url(../../../../../images/anime-bg-home-ten.jpg);}
+  0% {
+   background-image: url(../../../../../images/anime-home/anime-bg-home-10.jpg);
+  }
+  10% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-2.jpg);
+  }
+  20% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-3.jpg);
+  }
+  30% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-4.jpg);
+  }
+  40% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-6.jpg);
+  }
+  50% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-7.jpg);
+  }
+  60% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-10.jpg);
+  }
+  70% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-11.jpg);
+  }
+  80% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-12.jpg);
+  }
+  90% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-13.jpg);
+  }
+ 
+  90% {
+    background-image: url(../../../../../images/anime-home/anime-bg-home-2.jpg);
+  }
+ 
+}
+
+@keyframes image-flip {
+  0% {
+    transform: perspective(400px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(200deg);
+  }
 }

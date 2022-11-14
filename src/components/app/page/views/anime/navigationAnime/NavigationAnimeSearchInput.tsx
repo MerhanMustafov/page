@@ -49,11 +49,12 @@ export function NavigationAnimeSearchInput(props: Props) {
 
   
   return (
-    <div className="anime-NavigationAnimeSearchInput-outer-wrapper">
-      <div className="anime-NavigationAnimeSearchInput-inner-wrapper">
+    <div className="anime-NavigationAnimeSearchInput-search-outer-wrapper">
+      <div className="anime-NavigationAnimeSearchInput-search-inner-wrapper">
         <input
           type="text"
           id="anime-NavigationAnimeSearchInput-input"
+          placeholder='...'
           value={props.input}
           onChange={(e) => {
             props.setInput(e.target.value);

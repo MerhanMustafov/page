@@ -11,9 +11,12 @@ export function MovieType(props: Props) {
     props.setMovieType(type)
     if (params) {
       const section = params['*']?.split('/')[0]
-      const currentPage = params['*']?.split('/')[2]
-      if (section !== 'upcoming'.trim()) {
-        navigateTo(`/movie/${section}/${type}/1`)
+      if(section && ['upcomming'.trim(), 'popular'.trim(), 'topRated'.trim()].includes(section)){
+        const currentPage = params['*']?.split('/')[2]
+        if (section !== 'upcoming'.trim()) {
+            navigateTo(`/movie/${section}/${type}/1`)
+        }
+
       }
     }
   }

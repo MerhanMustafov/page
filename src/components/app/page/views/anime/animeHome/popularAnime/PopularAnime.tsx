@@ -36,7 +36,7 @@ export function PopularAnime() {
         <div  className="anime-PopularAnime-inner-wrapper"  onWheel={(e) => xScroll(e)}>
             { data.length > 0
                 ? data.map(anime => <PopularAnimeCard key={`PopularAnimeCard${key++}`} {...anime}/>)
-                : <div>Loading popularAnime ...</div>
+                : <div className="anime-home-loading">Loading ...</div>
             
             }
 
