@@ -23,7 +23,7 @@ interface MovieData {
 interface MoviePopularState {
   currentPage: number
   movies: MovieData[]
-  totalPages: number | null
+  totalPages: number
   section: string
 }
 
@@ -35,7 +35,7 @@ export function MoviePopular(props: Props) {
   const [data, setData] = useState<MoviePopularState>({
     currentPage: 1,
     movies: [],
-    totalPages: null,
+    totalPages: 0,
     section: 'popular'.trim()
   })
   // const [currentPage, setCurrentPage] = useState<number>(1)
@@ -54,8 +54,8 @@ export function MoviePopular(props: Props) {
     }
   }, [params])
   return (
-    <div className="movie-MoviePopular-outer-wrapper">
-      <div className="movie-MoviePopular-title">Popular </div>
+    <div className="movie-MoviePopular-outer-wrapper movie-section-top">
+      {/* <div className="movie-MoviePopular-title">Popular {props.movieType}</div> */}
       <div className="movie-MoviePopular-inner-wrapper">
         {data.movies.length > 0 ? (
           data.movies.map((movie) => (
@@ -65,7 +65,10 @@ export function MoviePopular(props: Props) {
           <div>Loading ...</div>
         )}
       </div>
-      <MoviePaginate {...{...data, movieType: props.movieType, section: data.section}}/> 
+      {data.totalPages > 0
+      && <MoviePaginate {...{...data, movieType: props.movieType, section: data.section}}/> 
+      
+      }
     </div>
   )
 }

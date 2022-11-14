@@ -1,14 +1,15 @@
 .movie-MovieHome-outer-wrapper {
   // background: rgba(0, 0, 255, 0.479);
-  min-height: 500vh;
-  background-image: url(../../../../../images/movie-home/movie-bg-home-two.jpg);
+  min-height: 100vh;
+//   background-image: url(../../../../../images/movie-home/movie-bg-home-two.jpg);
+  background-image: url(../../../../../images/movie-home/movie-bg-home-four.jpg);
   background-repeat: no-repeat;
   background-position: fixed;
   background-attachment: fixed;
   background-size: 100% 100%;
 
   .movie-MovieHome-inner-wrapper {
-    max-width: 1920px;
+    max-width: 2000px;
     margin: 0 auto;
 
     .movie-MovieHome-content-outer-wrapper {
@@ -16,7 +17,7 @@
       .movie-MovieHome-content-inner-wrapper {
         // border: 2px solid blue;
         display: grid;
-        grid-template-columns: 80%;
+        grid-template-columns: 97%;
         grid-template-rows: auto;
         grid-template-areas:
           'movie-type'
@@ -36,7 +37,7 @@
           justify-content: space-between;
 
           .movie-MovieHome-btn {
-            border-left: 2px solid rgb(255, 255, 255);
+            // border-top: 2px solid rgb(255, 255, 255);
             // border-right: 2px solid rgb(255, 255, 255);
             padding: 0px 0px 0px 10px;
             margin: 5px 0px 0px 0px;
@@ -64,4 +65,20 @@
       }
     }
   }
+}
+
+
+
+.current-clicked-section{
+    pointer-events: none;
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    // width: max-content;
+    padding: 0px 20px!important ;
+    color: orange !important;
+    bottom: -70px !important;
+    // right: -50 !important;
+    font-size: 25px !important;
+    font-style: italic !important;
 }

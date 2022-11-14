@@ -3,11 +3,11 @@
   display: inline-block;
   background: rgb(29, 29, 29);
 //   margin: 20px 5px 20px 50px;
-        margin: 50px 10px;
+        margin: 70px 20px;
 text-align: left;
   width: 200px;
 //   width: 20%;
-  height: 280px;
+  height: 270px;
   .movie-MovieCard-inner-wrapper {
 
     // border: 2px solid green;
@@ -21,7 +21,7 @@ text-align: left;
     .movie-MovieCard-image-wrapper {
 //   border-radius: 100px;
     position: relative;
-    left: -20px;
+    right: -20px;
     top: -20px;
       grid-area: MC-img;
     //   border: 2px solid green;
@@ -40,7 +40,7 @@ text-align: left;
         padding: 0px 10px;
         font-weight: 800;
         font-size: 12px;
-        top: -20px;
+        top: -15px;
         right: -5px;
         background: rgb(1, 27, 66);
         .rate {
@@ -71,6 +71,12 @@ text-align: left;
         color: white;
         font-weight: 800;
       }
+        .movie-MovieCard-title:hover{
+    // background: rgb(120, 0, 120);
+    background: black;
+    color: orange;
+    cursor: pointer;
+  }
       .movie-MovieCard-genres-wrapper {
         grid-area: MC-genres;
         color: white;
