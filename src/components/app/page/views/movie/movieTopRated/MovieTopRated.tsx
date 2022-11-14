@@ -52,7 +52,7 @@ export function MovieTopRated(props: Props) {
         })),
       )
     }
-  }, [params.type, params.currentPage])
+  }, [params])
   return (
     <div className="movie-MovieTopRated-outer-wrapper movie-section-top">
       {/* <div className="movie-MovieTopRated-title">Top Rated {props.movieType} </div> */}

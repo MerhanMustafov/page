@@ -1,14 +1,15 @@
 .movie-MovieHome-outer-wrapper {
   // background: rgba(0, 0, 255, 0.479);
   min-height: 100vh;
-  background-image: url(../../../../../images/movie-home/movie-bg-home-two.jpg);
+//   background-image: url(../../../../../images/movie-home/movie-bg-home-two.jpg);
+  background-image: url(../../../../../images/movie-home/movie-bg-home-four.jpg);
   background-repeat: no-repeat;
   background-position: fixed;
   background-attachment: fixed;
   background-size: 100% 100%;
 
   .movie-MovieHome-inner-wrapper {
-    max-width: 1920px;
+    max-width: 2000px;
     margin: 0 auto;
 
     .movie-MovieHome-content-outer-wrapper {
@@ -16,7 +17,7 @@
       .movie-MovieHome-content-inner-wrapper {
         // border: 2px solid blue;
         display: grid;
-        grid-template-columns: 80%;
+        grid-template-columns: 97%;
         grid-template-rows: auto;
         grid-template-areas:
           'movie-type'

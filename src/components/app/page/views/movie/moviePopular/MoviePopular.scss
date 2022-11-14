@@ -1,15 +1,18 @@
 .movie-MoviePopular-outer-wrapper {
 //   border-top: 1px solid rgb(255, 255, 255);
+//   border: 1px solid rgb(255, 255, 255);
   margin: 10% 0px;
 //   background-image: url(../../../../../images/anime-bg-detail-four.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
+  width: 100%;
   .movie-MoviePopular-title {
     // border: 2px solid red;
     font-size: 20px;
     color: white;
   }
+
   .movie-MoviePopular-inner-wrapper {
     // border: 2px solid green;
     // background: rgb(0, 15, 34);

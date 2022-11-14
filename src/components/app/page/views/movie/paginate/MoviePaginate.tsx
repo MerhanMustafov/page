@@ -35,7 +35,7 @@ export function MoviePaginate(props: Props){
     const params = useParams()
     const navigateTo = useNavigate()
     let key = 1
-    const [currentPage, setCurrentPage] = useState<number>(Number(1))
+    const [currentPage, setCurrentPage] = useState<number>(Number(params.currentPage))
     const [visiblePages, setVisiblePages] = useState<number[]>([])
     const [lastPage, setLastPage] = useState<number>(0)
     
@@ -77,17 +77,17 @@ export function MoviePaginate(props: Props){
         <div className="movie-MoviePaginate-outer-wrapper">
             <div className="movie-MoviePaginate-inner-wrapper">
 
-               <div onClick={(e) => onPageClick(e)}id={`MoviePaginate-1`} className={`movie-MoviePaginate-page ${currentPage === 1 && 'movie-MoviePaginate-current'}`}>1</div> 
+               <div onClick={(e) => onPageClick(e)}id={`MoviePaginate-1`} className={`movie-MoviePaginate-page ${Number(params.currentPage) === 1 && 'movie-MoviePaginate-current'}`}>1</div> 
                 
                 
                 {visiblePages.length > 0 
                 && visiblePages.map((page: number, i) => 
                 <div onClick={(e) => onPageClick(e)}
-                key={`MoviePaginate-${key++}`} id={`MoviePaginate-${page}`} className={`movie-MoviePaginate-page ${page === currentPage && 'movie-MoviePaginate-current'}`}>{page}</div> ).slice(0,  visiblePages.length -1)
+                key={`MoviePaginate-${key++}`} id={`MoviePaginate-${page}`} className={`movie-MoviePaginate-page ${page === Number(params.currentPage) && 'movie-MoviePaginate-current'}`}>{page}</div> ).slice(0,  visiblePages.length -1)
                 }
                 {lastPage > 0
                 &&
-                <div onClick={(e) => onPageClick(e)}id={`MoviePaginate-${lastPage}`} className={`movie-MoviePaginate-page ${currentPage === lastPage && 'movie-MoviePaginate-current'}`}>{lastPage}</div>
+                <div onClick={(e) => onPageClick(e)}id={`MoviePaginate-${lastPage}`} className={`movie-MoviePaginate-page ${Number(params.currentPage) === lastPage && 'movie-MoviePaginate-current'}`}>{lastPage}</div>
 
                 }
             </div>

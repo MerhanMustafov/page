@@ -8,7 +8,6 @@ import { MovieTopRated } from '../movieTopRated/MovieTopRated'
 import { MovieUpcoming } from '../movieUpcoming/MovieUpcoming'
 export function MovieHome() {
   const params = useParams()
-  console.log(params['*']?.split('/')[0])
   const [movieType, setMovieType] = useState<string>('movie'.trim())
 
   return (
