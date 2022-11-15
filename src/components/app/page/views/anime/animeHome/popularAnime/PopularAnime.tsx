@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom';
 import { getPopularAnime } from '../../../../../../../api/apiReaquest/apiRequest'
 import {PopularAnimeCard} from './PopularAnimeCard'
 
@@ -12,11 +13,12 @@ interface SingleAnimeData {
 
 export function PopularAnime() {
     let key = 1
+    const navigateTo = useNavigate()
   const [data, setData] = useState<SingleAnimeData[]>([])
   const [error, setError] = useState<string>('')
 
   useEffect(() => {
-    getPopularAnime().then((res) => setData(res.data)).catch(err => setError('getPopularAnime error'))
+    getPopularAnime(1).then((res) => setData(res.data)).catch(err => setError('getPopularAnime error'))
   }, [])
 
   function xScroll(e: React.WheelEvent){
@@ -32,7 +34,7 @@ export function PopularAnime() {
 
   return (
     <div className="anime-PopularAnime-outer-wrapper">
-        <h2 className="anime-PopularAnime-tite">Popular anime</h2>
+        <h2 onClick={() => navigateTo('/anime/popular/1')} className="anime-PopularAnime-tite">Popular anime</h2>
         <div  className="anime-PopularAnime-inner-wrapper"  onWheel={(e) => xScroll(e)}>
             { data.length > 0
                 ? data.map(anime => <PopularAnimeCard key={`PopularAnimeCard${key++}`} {...anime}/>)

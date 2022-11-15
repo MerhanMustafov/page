@@ -1,0 +1,36 @@
+.Paginate-outer-wrapper{
+    // background: blue;
+    // border-top: 1px solid white;
+    margin: 0px;
+    .Paginate-inner-wrapper{
+        // display: flex;
+        // flex-wrap: wrap;
+        color: white;
+        text-align: center;
+        .Paginate-page{
+            display: inline-block;
+            margin: 1px;
+            padding: 5px 10px;
+            background: rgb(0, 0, 0);
+            color: orange;
+            // font-size: 10px;
+            cursor: pointer;
+        }
+        .Paginate-page:hover{
+            transition: font-size 1s ease-in-out;
+            // padding: 7px 10px;
+            // font-size: 25px;
+            position: relative;
+            bottom: -10px;
+        }
+        .Paginate-current{
+            border: 1px solid white;
+            // border-radius: 50px;
+            padding: 0px 20px;
+            transition: padding 2s;
+            font-size: 25px;
+            position: relative;
+            bottom: -10px;
+        }
+    }
+}
