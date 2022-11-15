@@ -1,0 +1,119 @@
+.home-HomeView-outer-wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 97%;
+  height: 100vh;
+  .home-HomeView-inner-wrapper {
+    // border: 2px solid red;
+    width: 100%;
+    text-align: center;
+    height: 70vh;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "HomeView-anime"
+    "HomeView-movie"
+    ;
+    justify-content: center;
+    align-items: flex-start;
+    .home-HomeView-anime-wrapper {
+        grid-area: HomeView-anime;
+    //   border: 2px solid rgb(0, 195, 255);
+      //   color: white;
+      .home-HomeView-anime-link {
+        font-family: 'Courier New', Courier, monospace;
+        display: block;
+        text-decoration: none;
+        color: orange;
+        font-size: 60px;
+        animation: anime-btn;
+        width: 250px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      .home-HomeView-anime-link:hover {
+        transition: transform 1s, width 2s;
+        width: 80%;
+        margin: 0 auto;
+        // transform: perspective(400px) rotateY(360deg);
+        border-left: 5px solid white;
+        border-right: 5px solid white;
+        border-radius: 50px;
+      }
+      .home-HomeView-gogoanime-wrapper {
+        a {
+          div {
+            display: inline-block;
+            margin: 0px 15px;
+            color: orange;
+            vertical-align: top;
+            font-size: 20px;
+          }
+          img {
+            width: 60px;
+          }
+        }
+      }
+    }
+
+    .home-HomeView-movie-wrapper {
+        grid-area: HomeView-movie;
+    //   border: 2px solid rgb(72, 255, 0);
+      .home-HomeView-movie-link {
+        font-family: 'Courier New', Courier, monospace;
+        display: block;
+        text-decoration: none;
+        font-size: 72px;
+        background: -webkit-linear-gradient(
+          rgba(142, 205, 162),
+          rgba(142, 205, 162),
+          rgba(3, 180, 228),
+          rgba(3, 180, 228)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 60px;
+        animation: anime-btn;
+        width: 250px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      .home-HomeView-movie-link:hover {
+        transition: transform 1s, width 2s;
+        width: 80%;
+        margin: 0 auto;
+        // transform: perspective(400px) rotateY(360deg);
+        border-left: 5px solid white;
+        border-right: 5px solid white;
+        border-radius: 50px;
+      }
+
+      .home-HomeView-tmdb-wrapper {
+        a {
+          div {
+            display: inline-block;
+            margin: 0px 15px;
+            background: -webkit-linear-gradient(
+              rgba(142, 205, 162),
+              rgba(142, 205, 162),
+              rgba(3, 180, 228),
+              rgba(3, 180, 228)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            vertical-align: top;
+            font-size: 20px;
+          }
+          img {
+            width: 40px;
+          }
+        }
+      }
+      
+    }
+  }
+}

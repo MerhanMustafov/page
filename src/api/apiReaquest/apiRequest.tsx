@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-export  function getPopularAnime(){
-    return axios.get("https://gogoanime.consumet.org/popular")
+export  function getPopularAnime(page: number){
+    return axios.get(`https://gogoanime.consumet.org/popular?page=${page}`)
 }
-export  function getTopAiring(){
-    return axios.get("https://gogoanime.consumet.org/top-airing")
+export  function getTopAiring(page: number){
+    return axios.get(`https://gogoanime.consumet.org/top-airing?page=${page}`)
 }
 export  function getAnimeDetailById(animeId: string){
     return axios.get(`https://gogoanime.consumet.org/anime-details/${animeId}`)

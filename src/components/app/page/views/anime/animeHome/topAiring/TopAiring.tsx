@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getTopAiring } from '../../../../../../../api/apiReaquest/apiRequest'
 import {TopAiringCard} from './TopAiringCard'
 interface TopAiringData {
@@ -11,10 +12,11 @@ interface TopAiringData {
 }
 export function TopAiring() {
     let key = 1
+    const navigateTo = useNavigate()
   const [data, setData] = useState<TopAiringData[]>([])
 
   useEffect(() => {
-    getTopAiring().then(res => setData(res.data))
+    getTopAiring(1).then(res => setData(res.data))
   }, [])
 
   function xScroll(e: React.WheelEvent){
@@ -29,7 +31,7 @@ export function TopAiring() {
   }
   return (
     <div className="anime-TopAiring-outer-wrapper">
-        <h2 className="anime-TopAiring-title">Top airing</h2>
+        <h2 onClick={() => navigateTo(`/anime/top-airing/1`)} className="anime-TopAiring-title">Top airing</h2>
     <div onWheel={(e) => xScroll(e)} className="anime-TopAiring-inner-wrapper">
             {data.length > 0 
             ?

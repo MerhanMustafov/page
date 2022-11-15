@@ -14,6 +14,7 @@ interface Props {
   setInput: (i: string) => void
 }
 export function NavigationAnimeSearchDropdown(props: Props) {
+    let key = 1
   return (
     // style={inputEl.value.length <= 0 ? {display: 'none'} : {display: 'block'}}
     <div className="anime-NavigationAnimeSearchDropdown-outer-wrapper">
@@ -25,6 +26,7 @@ export function NavigationAnimeSearchDropdown(props: Props) {
           {props.data.length > 0 ? (
             props.data.map((animeData) => (
               <NavigationAnimeSearchDropdownBox
+              key={`NavigationAnimeSearchDropdown${key++}`}
                 {...{
                   input: props.input,
                   setInput: props.setInput,
