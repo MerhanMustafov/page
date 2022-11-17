@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useParams, Routes, Route } from 'react-router-dom';
-import {MovieHomeDetailVideos} from './MovieHomeDetailVideos'
+// import {MovieHomeDetailVideos} from './MovieHomeDetailVideos'
 import {getMovieDetailById} from '../../../../../../api/movieApi/movieApi';
+const MovieHomeDetailVideos = React.lazy(() => import('./MovieHomeDetailVideos').then(({MovieHomeDetailVideos})=> ({default: MovieHomeDetailVideos})));
 
 interface SingleMovieDetail {
   adult: boolean
@@ -44,32 +45,21 @@ interface MovieTrailer {
   published_at: string
 }
 
+type Show = {
+    videos: boolean
+}
 export function MovieHomeDetails() {
   let key = 1
-  const [movieData, setMovieData] = useState<SingleMovieDetail | null>(null)
-  const [trailerData, setTrailerData] = useState<MovieTrailer[]>([])
-  const [reload, setReload] = useState<boolean>(true)
   const params = useParams()
+  const [movieData, setMovieData] = useState<SingleMovieDetail | null>(null)
+  const [show, setShow] = useState<Show>({videos: false})
 
   useEffect(() => {
-    // if(!movieData && !trailerData){
-    // const [id, type] = [
-    //   Number(params.movieId),
-    //   params.movieType,
-    // ]
+    setShow((prev: Show) => ({...prev, videos: false}))
     if(params.movieType && params.movieId){
         getMovieDetailById(params.movieType, Number(params.movieId)).then(res => setMovieData(res.data))
-
     }
-    // if (params.movieType && params.movieId)
-    //   Promise.all([
-        // getMovieTrailerById(params.movieType, Number(params.movieId)).then(res => )
-    //   ]).then(
-        // (res) => (
-        //   setMovieData(res[0].data), setTrailerData(res[1].data.results)
-        // ),
-    //   )
-    // }
+
   }, [params])
 
   return (
@@ -156,24 +146,20 @@ export function MovieHomeDetails() {
       ) : (
         <div>LOADING ...</div>
       )}
-      <Routes>
-        <Route path="/" element={<MovieHomeDetailVideos />} />
-      </Routes>
+
+        <div onClick={() => show.videos ? setShow((prev: Show) => ({...prev, videos: false})) : setShow((prev: Show) => ({...prev, videos: true}))} className="movie-MovieHomeDetails-display-videos">{show.videos === true ? 'hide' : 'show'} videos</div>
+        {show.videos === true 
+        &&
+      <Suspense fallback={ <div>Loading ...</div>}>
+        {/* <MovieHomeDetailVideos/> */}
+        <Routes>
+            <Route path="/" element={<MovieHomeDetailVideos />} />
+        </Routes>
+
+      </Suspense>
+        
+        }
       
     </>
   )
 }
-
-//  {trailerData.length > 0 && (
-//                 <div className="movie-MovieHomeDetails-movie-trailers-wrapper">
-//                   {/* {trailerData.map((data) => ( */}
-//                     <iframe
-//                     key={`MovieHomeDetails${key++}`}
-//                       className="movie-MovieHomeDetails-movie-detail-video"
-//                       src={`https://www.youtube.com/embed/${trailerData[0].key}`}
-//                       allowFullScreen
-//                       sandbox=""
-//                     ></iframe>
-//                   {/* ))} */}
-//                 </div>
-//             )}

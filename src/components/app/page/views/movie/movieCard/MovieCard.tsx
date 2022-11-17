@@ -31,6 +31,8 @@ export function MovieCard(props: MovieData) {
     <div className="movie-MovieCard-outer-wrapper">
       <div className="movie-MovieCard-inner-wrapper">
         <div
+        onClick={() => navigateTo(`/movie/${props.id}/${props.movieType}`)}
+        id={`MovieCard-${props.id}`}
           className="movie-MovieCard-image-wrapper"
           style={{
             backgroundImage: props.backdrop_path

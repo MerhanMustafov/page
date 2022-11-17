@@ -43,16 +43,17 @@ export function AnimeType() {
     }
   }, [params])
 
+    const getFormatedSectionTitle = (title: string | undefined) => {return title !== undefined &&  title.charAt(0).toUpperCase() + title.slice(1)}
   return (
     <div className="anime-AnimeType-outer-wrapper">
-      <h2 className="anime-AnimeType-tite">Popular anime</h2>
+      <h2 className="anime-AnimeType-title">{getFormatedSectionTitle(params.animeType)} anime</h2>
       <div className="anime-AnimeType-inner-wrapper">
         {data.length > 0 ? (
           data.map((anime) => (
             <AnimeCard key={`PopularAnimeCard${key++}`} {...anime} />
           ))
         ) : (
-          <div className="anime-home-loading">Loading ...</div>
+          <div className="anime-AnimeType-loading">Loading ...</div>
         )}
       </div>
       {currentPage > 0 && totalPages > 0 && (

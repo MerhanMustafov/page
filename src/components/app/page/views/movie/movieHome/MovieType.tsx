@@ -25,7 +25,7 @@ export function MovieType(props: Props) {
       <div className="movie-MovieType-inner-wrapper">
         <label
           htmlFor="movie"
-          style={{ color: 'orange' }}
+        //   style={{ color: 'orange' }}
           onClick={() => onTypeClick('movie'.trim())}
         >
           {' '}
@@ -41,7 +41,7 @@ export function MovieType(props: Props) {
         />
         <label
           htmlFor="tv"
-          style={{ color: 'orange' }}
+        //   style={{ color: 'orange' }}
           onClick={() => onTypeClick('tv'.trim())}
         >
           {' '}

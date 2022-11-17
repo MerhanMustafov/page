@@ -38,7 +38,6 @@ export function Paginate(props: Props){
     const [currentPage, setCurrentPage] = useState<number>(Number(params.currentPage))
     const [visiblePages, setVisiblePages] = useState<number[]>([])
     const [lastPage, setLastPage] = useState<number>(0)
-    
     useEffect(() => {
         setLastPage(0)
         setVisiblePages([])
@@ -52,15 +51,11 @@ export function Paginate(props: Props){
             firstVisiblePageIndex = 1
             lastVisiblePageIndex = Number(params.currentPage) + 10
         }
+
         const pages = (n: number) => {return Array.from(Array(n)).map((_, i) => ++i).slice(firstVisiblePageIndex, lastVisiblePageIndex)}
-        // if(props.totalPages && props.totalPages < 500){
+        
             setVisiblePages(pages(props.totalPages))
             setLastPage(props.totalPages)
-        // }else{
-            // setVisiblePages(pages(500));
-            // setLastPage(500)
-
-        // }
 
     }, [params])
 
@@ -71,9 +66,13 @@ export function Paginate(props: Props){
     function onPageClick(e: React.MouseEvent){
         const pageNum = getPageNum(e)
         setCurrentPage(pageNum)
-        navigateTo(`/anime/${params.animeType}/${pageNum}`)
-        // const ellToScrollTo = (document.querySelector('.current-clicked-section') as HTMLElement)
-        // window.scrollTo(0, ellToScrollTo.offsetTop - 10)
+        if(params.animeType){
+            navigateTo(`/anime/${params.animeType}/${pageNum}`)
+        }else if(params.movieType){
+            navigateTo(`/movie/${props.section}/${params.movieType}/${pageNum}`)
+            scrollTo('.current-clicked-section')
+
+        }
     }
 
     return (
@@ -96,4 +95,9 @@ export function Paginate(props: Props){
         </div>
     );
 
+}
+
+function scrollTo(identifier: string){
+    const ellToScrollTo = (document.querySelector(identifier) as HTMLElement)
+        window.scrollTo(0, ellToScrollTo.offsetTop - 10)
 }

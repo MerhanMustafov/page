@@ -1,25 +1,40 @@
 .anime-AnimeType-outer-wrapper {
-//   border: 2px solid rgb(255, 255, 255);
+  //   border: 2px solid rgb(255, 255, 255);
+//   background: rgb(0, 0, 0);
+//   background: linear-gradient(blue, rgb(0, 0, 133),rgb(0, 0, 131),black, black);
+//   background: linear-gradient(blue,black, black, rgb(0, 0, 131), blue, rgb(0, 0, 133), black);
+//   background: linear-gradient(black,rgb(0, 0, 90),rgb(0, 0, 100), rgb(0, 0, 130), rgb(0, 0, 156), rgb(0, 0, 133), black, black);
+  background: linear-gradient(black,rgb(0, 0, 0),rgb(0, 0, 0), rgb(0, 0, 130), rgb(0, 0, 156), rgb(0, 0, 133), black, black);
   text-align: center;
-  // display: flex;
-  // justify-content: center;
-//   min-height: 100vh;
-padding: 0px 0px 50px 0;
+  padding: 0px 0px 50px 0;
   width: auto;
+  .anime-AnimeType-title {
+    color: white;
+  }
   .anime-AnimeType-inner-wrapper {
     // border: 2px solid rgb(255, 0, 179);
     width: auto;
-    // display: ;
     display: flex;
     flex-wrap: wrap;
+    .anime-AnimeType-loading {
+      // border: 3px solid green;
+      color: white;
+      min-height: 20vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 35px;
+    }
 
     .anime-AnimeCard-outer-wrapper {
       // align-self: center;
-    //   border: 2px solid rgb(255, 0, 0);
+      //   border: 2px solid rgb(255, 0, 0);
       max-width: 41%;
       margin: 10px;
       //   margin: 2px 2px;
       width: 100%;
+
       .anime-AnimeCard-inner-wrapper {
         width: auto;
         // border: 2px solid rgb(0, 255, 42);
@@ -27,13 +42,18 @@ padding: 0px 0px 50px 0;
         .anime-AnimeCard-image {
         //   border: 5px solid rgb(55, 0, 255);
           width: 95%;
+          border-radius: 25px;
         }
 
         .anime-AnimeCard-title {
-        //   border: 2px solid rgb(255, 251, 0);
+          //   border: 2px solid rgb(255, 251, 0);
           color: white;
-        //   font-size: 10px;
+          //   font-size: 10px;
           text-align: start;
+        }
+        .anime-AnimeCard-title:hover {
+          color: orange;
+          cursor: pointer;
         }
       }
     }
@@ -41,9 +61,8 @@ padding: 0px 0px 50px 0;
 }
 
 @media screen and (min-width: 2500px) {
-
   .anime-AnimeType-outer-wrapper {
-     max-width: 2500px;
+    max-width: 2500px;
     margin: 0 auto;
     .anime-AnimeType-inner-wrapper {
       .anime-AnimeCard-outer-wrapper {
@@ -58,10 +77,10 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 15.3%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 19px;
+          .anime-AnimeCard-title {
+            font-size: 19px;
+          }
         }
-      }
       }
     }
   }
@@ -72,11 +91,10 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 18.2%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 17px;
+          .anime-AnimeCard-title {
+            font-size: 17px;
+          }
         }
-      }
-        
       }
     }
   }
@@ -87,24 +105,24 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 18%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 17px;
+          .anime-AnimeCard-title {
+            font-size: 17px;
+          }
         }
-      }
       }
     }
   }
 }
 @media screen and (max-width: 1400px) {
- .anime-AnimeType-outer-wrapper {
+  .anime-AnimeType-outer-wrapper {
     .anime-AnimeType-inner-wrapper {
       .anime-AnimeCard-outer-wrapper {
         max-width: 17.8%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 16px;
+          .anime-AnimeCard-title {
+            font-size: 16px;
+          }
         }
-      }
       }
     }
   }
@@ -115,11 +133,10 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 22.3%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 15px;
+          .anime-AnimeCard-title {
+            font-size: 15px;
+          }
         }
-      }
-        
       }
     }
   }
@@ -130,10 +147,10 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 21.8%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 14px;
+          .anime-AnimeCard-title {
+            font-size: 14px;
+          }
         }
-      }
       }
     }
   }
@@ -144,10 +161,10 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 29%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 13px;
+          .anime-AnimeCard-title {
+            font-size: 13px;
+          }
         }
-      }
       }
     }
   }
@@ -158,15 +175,13 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 43%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 12px;
+          .anime-AnimeCard-title {
+            font-size: 12px;
+          }
         }
-      }
-        
       }
     }
   }
- 
 }
 
 @media screen and (max-width: 350px) {
@@ -175,9 +190,9 @@ padding: 0px 0px 50px 0;
       .anime-AnimeCard-outer-wrapper {
         max-width: 41.5%;
         .anime-AnimeCard-inner-wrapper {
-        .anime-AnimeCard-title {
-          font-size: 8.5px;
-        }
+          .anime-AnimeCard-title {
+            font-size: 8.5px;
+          }
         }
       }
     }

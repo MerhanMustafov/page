@@ -1,16 +1,15 @@
 .anime-AnimeDetail-outer-wrapper {
 //   border: 3px solid orange;
     min-height: 100vh;
-    height: max-content;
-    background-image: url(../../../../../images/anime-bg-detail-four.jpg);
-    background-repeat: no-repeat;
-    background-position: fixed;
-    background-attachment: fixed;
-    background-size: 100% 100%;
+    background: rgb(0, 0, 0);
+    //   background: linear-gradient(black,rgb(0, 0, 90),rgb(0, 0, 100), rgb(0, 0, 130), rgb(0, 0, 156), rgb(0, 0, 133), black, black);
+    //   background: linear-gradient(rgb(0, 0, 0),rgb(0, 0, 0),black, black,black, rgb(95, 62, 0), rgb(105, 68, 0), rgb(88, 58, 0), black, black);
+    // background: linear-gradient(black,rgb(0, 0, 0),rgb(0, 0, 0), rgb(0, 0, 130), rgb(0, 0, 156), rgb(0, 0, 0), black, black);
   .anime-AnimeDetail-inner-wrapper {
-    // border: 3px solid red;
+    // background: rgba(0, 0, 0, 0.288);
+    background: linear-gradient(black,rgb(0, 0, 0),rgb(0, 0, 0), rgb(0, 0, 130), rgb(0, 0, 156), rgb(0, 0, 133), black, black);
+    border: 3px solid red;
     max-width: 1920px;
-    background: rgba(0, 0, 0, 0.288);
 
     margin: 0px auto;
     padding: 20px;

@@ -62,7 +62,7 @@ export function MovieHomeSearch(props: Props) {
           value={input}
           type="text"
           id="movie-MovieHomeSearch-search-by-name"
-          placeholder="search movie or tv show"
+          placeholder="movie / tv show"
         />
         <i
           onClick={(e) => input.length > 0 && onSearchClick(e)}

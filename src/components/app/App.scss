@@ -21,8 +21,8 @@
 // navigationAnime
 
 // animeHome
-@import url(./page/views/anime/animeHome/popularAnime/PopularAnime.scss);
 @import url(./page/views/anime/animeHome/popularAnime/PopularAnimeCard.scss);
+@import url(./page/views/anime/animeHome/popularAnime/PopularAnime.scss);
 @import url(./page/views/anime/animeHome/topAiring/TopAiring.scss);
 @import url(./page/views/anime/animeHome/topAiring/TopAiringCard.scss);
 
@@ -60,27 +60,10 @@
 
 
 
-// MoviePopular
-@import url(./page/views/movie/moviePopular/MoviePopular.scss);
-
-// MovieTopRated
-@import url(./page/views/movie/movieTopRated/MovieTopRated.scss);
-
-// MovieUpcoming
-@import url(./page/views/movie/movieUpcoming/MovieUpcoming.scss);
-
-
-// Moviecard
+// MovieCard /MoviePopular/ MovieTopRated/ MovieUpcoming
 @import url(./page/views/movie/movieCard/MovieCard.scss);
 
-// Paginate
-@import url(./page/views/movie/paginate/MoviePaginate.scss);
-
 // MOVIE
-
-
-
-
 @import url(./page/views/home/HomeView.scss);
 
 

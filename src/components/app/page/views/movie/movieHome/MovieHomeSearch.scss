@@ -1,6 +1,6 @@
 .movie-MovieHomeSearch-search-outer-wrapper {
     //   border: 2px solid rgb(4, 252, 240);
-  grid-area: movie-search-bar;
+  grid-area: movie-search;
   position: relative;
   width: 100%;
   .movie-MovieHomeSearch-search-inner-wrapper {
@@ -18,7 +18,7 @@
       border: none;
       outline: none;
     //   flex-grow: 1;
-      font-size: 30px;
+      font-size: 20px;
       color: rgb(252, 252, 252);
       padding: 0px 20px;
     //   border: 20px solid rgb(136, 0, 0);

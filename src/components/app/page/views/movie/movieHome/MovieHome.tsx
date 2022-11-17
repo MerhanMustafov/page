@@ -17,7 +17,7 @@ export function MovieHome() {
           <div className="movie-MovieHome-content-inner-wrapper">
             <div className="movie-MovieHome-content-navigation-wrapper">
               <Link
-                className={`movie-MovieHome-popular-movies movie-MovieHome-btn ${
+                className={`movie-MovieHome-popular-movies movie-MovieHome-btn m-type ${
                   params['*']?.split('/')[0] === 'popular'.trim() &&
                   'current-clicked-section'
                 }`}
@@ -26,7 +26,7 @@ export function MovieHome() {
                 Popular {movieType}
               </Link>
               <Link
-                className={`movie-MovieHome-toprated-movies movie-MovieHome-btn ${
+                className={`movie-MovieHome-toprated-movies movie-MovieHome-btn m-type ${
                   params['*']?.split('/')[0] === 'topRated'.trim() &&
                   'current-clicked-section'
                 }`}
@@ -35,7 +35,7 @@ export function MovieHome() {
                 Top Rated {movieType}
               </Link>
               <Link
-                className={`movie-MovieHome-upcomming-movies movie-MovieHome-btn ${
+                className={`movie-MovieHome-upcomming-movies movie-MovieHome-btn m-type ${
                   params['*']?.split('/')[0] === 'upcoming'.trim() &&
                   'current-clicked-section'
                 }`}
@@ -45,6 +45,7 @@ export function MovieHome() {
               </Link>
             </div>
             <MovieType {...{ movieType, setMovieType }} />
+
             <MovieHomeSearch {...{ movieType, setMovieType }} />
             <Routes>
               <Route
@@ -52,15 +53,15 @@ export function MovieHome() {
                 element={<MovieHomeDetails />}
               />
               <Route
-                path="/popular/:type/:currentPage"
+                path="/popular/:movieType/:currentPage"
                 element={<MoviePopular {...{ movieType }} />}
               />
               <Route
-                path="/topRated/:type/:currentPage"
+                path="/topRated/:movieType/:currentPage"
                 element={<MovieTopRated {...{ movieType }} />}
               />
               <Route
-                path="/upcoming/:type/:currentPage"
+                path="/upcoming/:movieType/:currentPage"
                 element={<MovieUpcoming {...{ movieType: 'movie'.trim() }} />}
               />
             </Routes>

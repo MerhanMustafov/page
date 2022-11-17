@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MovieCard } from '../movieCard/MovieCard'
 import { getUpcoming } from '../../../../../../api/movieApi/movieApi'
-import {MoviePaginate} from '../paginate/MoviePaginate';
+// import {MoviePaginate} from '../paginate/MoviePaginate';
+import {Paginate} from '../../paginate/Paginate';
 interface MovieData {
   adult: boolean
   backdrop_path: string
@@ -38,24 +39,21 @@ export function MovieUpcoming(props: Props) {
     totalPages: 0,
     section: 'upcoming'.trim()
   })
-  // const [currentPage, setCurrentPage] = useState<number>(1)
-  // const [totalPages, setTotalPages] = useState<number>()
   const params = useParams()
 
   useEffect(() => {
-    if (params.type && params.currentPage) {
-      getUpcoming(params.type, Number(params.currentPage)).then((res) =>
+    if (params.movieType && params.currentPage) {
+      getUpcoming(params.movieType, Number(params.currentPage)).then((res) =>
         setData((prevState: MoviePopularState) => ({ ...prevState,
           currentPage: Number(params.currentPage),
           movies: res.data.results,
-          totalPages: res.data.total_pages,
+          totalPages: res.data.total_pages > 500 ? 500 : res.data.total_pages,
         })),
       )
     }
   }, [params])
   return (
     <div className="movie-MovieUpcoming-outer-wrapper  movie-section-top">
-      {/* <div className="movie-MovieUpcoming-title">Upcoming </div> */}
       
       <div className="movie-MovieUpcoming-inner-wrapper">
         {data.movies.length > 0 ? (
@@ -68,7 +66,7 @@ export function MovieUpcoming(props: Props) {
       </div>
       {data.totalPages > 0
       
-      && <MoviePaginate {...{...data, movieType: props.movieType, section: data.section}}/> 
+      && <Paginate {...{...data, movieType: props.movieType, section: data.section}}/> 
       }
     </div>
   )

@@ -1,101 +1,460 @@
-.movie-MovieCard-outer-wrapper {
-  border-right: 2px solid rgb(155, 155, 155);
-  display: inline-block;
-  background: rgb(29, 29, 29);
-//   margin: 20px 5px 20px 50px;
-        margin: 70px 20px;
-text-align: left;
-  width: 200px;
-//   width: 20%;
-  height: 270px;
-  .movie-MovieCard-inner-wrapper {
+.movie-MoviePopular-outer-wrapper, .movie-MovieTopRated-outer-wrapper, .movie-MovieUpcoming-outer-wrapper{
+    margin: 10% 0%;
+}
+.movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+//   border: 2px solid white;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1920px;
+  margin: 0px auto;
+  // justify-content: space-between;
+  .movie-MovieCard-outer-wrapper {
+    // border: 2px solid red;
+          position: relative;
+    margin: 40px 10px 0 10px;
+    width: 23.5%;
+    // border-radius: 25px;
 
-    // border: 2px solid green;
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 65% auto;
-    grid-template-areas:
-      'MC-img'
-      'MC-info';
-    .movie-MovieCard-image-wrapper {
-//   border-radius: 100px;
-    position: relative;
-    right: -20px;
-    top: -20px;
-      grid-area: MC-img;
-    //   border: 2px solid green;
-    border-top-left-radius: 50px;
-    // border-bottom-right-radius: 100px;
-    //   background-image: url(../../../../../images/card-image-one.jpg);
-    //   height: 180px;
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-position: center;
-      object-fit: cover;
-      position: relative;
-      .movie-MovieCard-rate {
-        position: absolute;
-        color: white;
-        padding: 0px 10px;
-        font-weight: 800;
-        font-size: 12px;
-        top: -15px;
-        right: -5px;
-        background: rgb(1, 27, 66);
-        .rate {
-          color: orange;
+    .movie-MovieCard-inner-wrapper {
+    // border-radius: inherit;
+    //   border: 2px solid blue;
+
+      .movie-MovieCard-image-wrapper {
+    // border-radius: inherit;
+        transform: perspective(400px) rotateY(10deg) scale(0.8);
+        // transform:scale(0.8);
+        // border: 2px solid green;
+        width: 100%;
+        height: 270px;
+        background-position: center;
+        background-size: cover;
+          position: unset;
+
+        .movie-MovieCard-rate {
+          position: absolute;
+        //   border: 2px solid white;
+          color: white;
+          top: -25px;
+        //   left: 15px;
+          background: rgb(0, 0, 90);
+          padding: 0px 10px;
+          font-weight: 600;
+          .rate {
+            color: orange;
+          }
         }
       }
-      // width: 75%;
-    //   height: 75%;
+      .movie-MovieCard-image-wrapper:hover{
+         cursor: pointer;
+         border: 2px solid orange;
+        transition: transform 1s;
+         transform: perspective(400px) rotateY(0deg) scale(1);
+      }
+      .movie-MovieCard-info-wrapper {
+        // border: 2px solid white;
+        color: white;
+        font-size: 15px;
+        .movie-MovieCard-title {
+          font-size: 20px;
+        //   border: 2px solid white;
+        }
+        .movie-MovieCard-title:hover {
+            cursor: pointer;
+            color: orange;
+        }
+        .movie-MovieCard-genres-wrapper {
+          .movie-MovieCard-genre {
+          }
+        }
+        .movie-MovieCard-date {
+        }
+      }
     }
-    .movie-MovieCard-info-wrapper {
-        grid-area: MC-info;
-        display: grid;
-    grid-template-columns: 5px 75% 20% 5px;
-    grid-template-rows: auto;
-    grid-template-areas:
-      '. MC-title MC-title  .'
-      '. MC-genres MC-genres .'
-      '. MC-date MC-date .'
-      '. MC-rate . .'
-      ;
-      align-items:baseline;
-      justify-content:start;
-    //   padding: 0px 10px 0 0;
-    
-      .movie-MovieCard-title {
-        grid-area: MC-title;
-        font-size: 13px;
-        color: white;
-        font-weight: 800;
-      }
-        .movie-MovieCard-title:hover{
-    // background: rgb(120, 0, 120);
-    background: black;
-    color: orange;
-    cursor: pointer;
   }
-      .movie-MovieCard-genres-wrapper {
-        grid-area: MC-genres;
-        color: white;
-        // display: flex;
-        // flex-wrap: wrap;
-        // gap: 10px;
-        font-size: 11px;
-        .movie-MovieCard-genre {
-          display: inline-block;
-          padding: 0px 7px 0 0;
+}
+
+
+@media screen and (max-width: 2000px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 2000px;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 23.5%;
+
+      .movie-MovieCard-inner-wrapper {
+
+        .movie-MovieCard-image-wrapper {
+          .movie-MovieCard-rate {
+            // border: 2px solid white;
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 15px;
+          .movie-MovieCard-title {
+            font-size: 20px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
         }
       }
-      .movie-MovieCard-date {
-        grid-area: MC-date;
-        color: white;
-        font-size: 11px;
-      }
+    }
+  }
+}
+@media screen and (max-width: 1800px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 23.3%;
 
-      
+      .movie-MovieCard-inner-wrapper {
+        .movie-MovieCard-image-wrapper {
+
+          .movie-MovieCard-rate {
+            // border: 2px solid white;
+            color: white;
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 15px;
+          .movie-MovieCard-title {
+            font-size: 20px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1600px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 31.3%;
+
+      .movie-MovieCard-inner-wrapper {
+
+        .movie-MovieCard-image-wrapper {
+
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 15px;
+          .movie-MovieCard-title {
+            font-size: 20px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1300px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 31%;
+
+      .movie-MovieCard-inner-wrapper {
+        // border: 2px solid blue;
+
+        .movie-MovieCard-image-wrapper {
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 13px;
+          .movie-MovieCard-title {
+            font-size: 17px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1100px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 30.5%;
+
+      .movie-MovieCard-inner-wrapper {
+        // border: 2px solid blue;
+
+        .movie-MovieCard-image-wrapper {
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 13px;
+          .movie-MovieCard-title {
+            font-size: 17px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 46%;
+
+      .movie-MovieCard-inner-wrapper {
+        // border: 2px solid blue;
+
+        .movie-MovieCard-image-wrapper {
+
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 13px;
+          .movie-MovieCard-title {
+            font-size: 17px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 45%;
+
+      .movie-MovieCard-inner-wrapper {
+        // border: 2px solid blue;
+
+        .movie-MovieCard-image-wrapper {
+
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 13px;
+          .movie-MovieCard-title {
+            font-size: 17px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 10px 0 10px;
+      width: 100%;
+
+      .movie-MovieCard-inner-wrapper {
+        // border: 2px solid blue;
+
+        .movie-MovieCard-image-wrapper {
+
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 13px;
+          .movie-MovieCard-title {
+            font-size: 17px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .movie-MoviePopular-inner-wrapper, .movie-MovieTopRated-inner-wrapper,.movie-MovieUpcoming-inner-wrapper {
+    // border: 2px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    .movie-MovieCard-outer-wrapper {
+    //   border: 2px solid red;
+      margin: 40px 0 0 0;
+      //   max-width: 100%;
+      width: 100%;
+
+      // display: ;
+      .movie-MovieCard-inner-wrapper {
+        // border: 2px solid blue;
+
+        .movie-MovieCard-image-wrapper {
+
+          .movie-MovieCard-rate {
+            .rate {
+              color: orange;
+            }
+          }
+        }
+        .movie-MovieCard-info-wrapper {
+        //   border: 2px solid white;
+          color: white;
+          font-size: 13px;
+          .movie-MovieCard-title {
+            font-size: 15px;
+            // border: 2px solid white;
+          }
+          .movie-MovieCard-title:hover {
+          }
+          .movie-MovieCard-genres-wrapper {
+            .movie-MovieCard-genre {
+            }
+          }
+          .movie-MovieCard-date {
+          }
+        }
+      }
     }
   }
 }

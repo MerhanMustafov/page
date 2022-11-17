@@ -1,54 +1,59 @@
 .anime-AnimeEpisode-outer-wrapper {
-  background-image: url(../../../../../images/anime-bg-detail-four.jpg);
-  background-repeat: no-repeat;
-  background-position: fixed;
-  background-size: 100% 100%;
-  background-attachment: fixed;
+margin: 0 auto;
+background: rgb(0, 0, 0);
+//   background: linear-gradient(rgb(0, 0, 0),rgb(0, 0, 0),black, black,black, rgb(95, 62, 0), rgb(105, 68, 0), rgb(88, 58, 0), black, black);
+//   max-width:1399px;
   min-height: 100vh;
   .anime-AnimeEpisode-inner-wrapper {
-    border: 2px solid gray;
-    // background: rgba(0, 0, 0, 0.226);
+    // border: 2px solid rgb(252, 2, 2);
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
     grid-template-areas:
+      'anime-info-wrapper'
       'streaming-wrapper'
-      'anime-info-wrapper';
+      ;
     margin: 0 auto;
     max-width: 1920px;
-// width: 100%;
 
     .anime-AnimeEpisode-streaming-outer-wrapper {
-    //   border: 2px solid gray;
+//   background: linear-gradient(rgb(0, 0, 0),rgb(92, 49, 0), rgb(95, 62, 0), black, black);
+  background: linear-gradient(black,rgb(0, 0, 0),rgb(0, 0, 0), rgb(0, 0, 130), rgb(0, 0, 156), rgb(0, 0, 133), black, black);
+        // border: 2px solid gray;
       grid-area: streaming-wrapper;
       .anime-AnimeEpisode-streaming-inner-wrapper {
         // border: 2px solid blue;
+        width: auto;
 
         .anime-AnimeEpisode-iframe-outer-wrapper {
-        //   border: 2px solid green;
-          width: 50%;
-        padding: 15px;
+        //   border: 2px solid orange;
+          width: auto;
+          padding: 15px;
           //   height: 50%;
           display: flex;
           flex-direction: column;
           margin: 0 auto;
+          max-width: 1000px;
 
-          .anime-AnimeEpisode-iframe-top-wrapper{
+          .anime-AnimeEpisode-iframe-top-wrapper {
             display: flex;
             justify-content: space-between;
             .anime-AnimeEpisode-go-to-detail-page {
-                cursor: pointer;
-                margin-bottom: 5px;
-                color: orange;
+              cursor: pointer;
+              margin-bottom: 5px;
+              color: orange;
+            font-size: 20px;
             }
-            .anime-AnimeEpisode-current-straming-episode{
-                color: orange;  
+            .anime-AnimeEpisode-current-straming-episode {
+              color: orange;
+            font-size: 20px;
             }
-
           }
           .anime-AnimeEpisode-iframe-inner-wrapper {
             // border: 2px solid red;
             .vid {
+                border: none;
+                border-top: 2px solid gray;
               aspect-ratio: 16 / 9.15;
               display: block;
               width: 100%;
@@ -68,13 +73,14 @@
       .anime-AnimeEpisode-detail-inner-wrapper {
         // border: 2px solid red;
         .anime-AnimeEpisode-imaga-area-wrapper {
-            display: flex;
-            flex-direction: column;
-            max-width: 20%;
-            float:left; 
-            margin: 10px 20px 10px 10px; 
+          display: flex;
+          flex-direction: column;
+          max-width: 20%;
+          float: left;
+          margin: 10px 20px 10px 10px;
           .anime-AnimeEpisode-title {
             // border: 2px solid red;
+            margin: 10px 0px 10px 5px;
             font-size: 25px;
             color: white;
           }
@@ -86,22 +92,289 @@
             color: white;
             // float: right;
           }
-          .anime-AnimeEpisode-ep-count{
+          .anime-AnimeEpisode-ep-count {
             color: white;
+            font-size: 17px;
           }
         }
         .anime-AnimeEpisode-synopsis {
-        //   border: 2px solid red;
-            color: rgb(165, 165, 165);
-            font-family: 'Courier New', Courier, monospace;
-            margin: 10px 20px 0px 10px; 
-            padding: 10px 10px 10px 0px ;
-          font-size: 25px;
-            // font-weight: 600;
-          // display: flex;
-        //   float: right;
-        //   letter-spacing: 1px;
-        //   line-height: 15px;
+          //   border: 2px solid red;
+          color: rgb(165, 165, 165);
+          font-family: 'Courier New', Courier, monospace;
+          margin: 10px 20px 0px 10px;
+          padding: 50px 10px 10px 0px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) {
+   .anime-AnimeEpisode-outer-wrapper {
+    .anime-AnimeEpisode-inner-wrapper {
+      .anime-AnimeEpisode-streaming-outer-wrapper {
+        .anime-AnimeEpisode-streaming-inner-wrapper {
+          .anime-AnimeEpisode-iframe-outer-wrapper {
+            max-width: 900px;
+            .anime-AnimeEpisode-iframe-top-wrapper {
+              .anime-AnimeEpisode-go-to-detail-page {
+                margin-bottom: 2px;
+                font-size: 13px;
+              }
+              .anime-AnimeEpisode-current-straming-episode {
+                margin-bottom: 2px;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+      .anime-AnimeEpisode-detail-outer-wrapper {
+        .anime-AnimeEpisode-detail-inner-wrapper {
+          .anime-AnimeEpisode-imaga-area-wrapper {
+            margin: 3px 12px 2px 10px;
+            .anime-AnimeEpisode-title {
+              font-size: 18px;
+            }
+            .anime-AnimeEpisode-image {
+            }
+            .anime-AnimeEpisode-status {
+              font-size: 11px;
+            }
+            .anime-AnimeEpisode-ep-count {
+              font-size: 11px;
+            }
+          }
+          .anime-AnimeEpisode-synopsis {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .anime-AnimeEpisode-outer-wrapper {
+    .anime-AnimeEpisode-inner-wrapper {
+      .anime-AnimeEpisode-streaming-outer-wrapper {
+        .anime-AnimeEpisode-streaming-inner-wrapper {
+          .anime-AnimeEpisode-iframe-outer-wrapper {
+            max-width: 700px;
+            .anime-AnimeEpisode-iframe-top-wrapper {
+              .anime-AnimeEpisode-go-to-detail-page {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+              .anime-AnimeEpisode-current-straming-episode {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+            }
+          }
+        }
+      }
+      .anime-AnimeEpisode-detail-outer-wrapper {
+        .anime-AnimeEpisode-detail-inner-wrapper {
+          .anime-AnimeEpisode-imaga-area-wrapper {
+            margin: 3px 12px 2px 10px;
+            .anime-AnimeEpisode-title {
+              font-size: 16px;
+            }
+            .anime-AnimeEpisode-image {
+            }
+            .anime-AnimeEpisode-status {
+              font-size: 10px;
+            }
+            .anime-AnimeEpisode-ep-count {
+              font-size: 10px;
+            }
+          }
+          .anime-AnimeEpisode-synopsis {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .anime-AnimeEpisode-outer-wrapper {
+    .anime-AnimeEpisode-inner-wrapper {
+      .anime-AnimeEpisode-streaming-outer-wrapper {
+        .anime-AnimeEpisode-streaming-inner-wrapper {
+          .anime-AnimeEpisode-iframe-outer-wrapper {
+            max-width: 700px;
+            .anime-AnimeEpisode-iframe-top-wrapper {
+              .anime-AnimeEpisode-go-to-detail-page {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+              .anime-AnimeEpisode-current-straming-episode {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+            }
+          }
+        }
+      }
+      .anime-AnimeEpisode-detail-outer-wrapper {
+        .anime-AnimeEpisode-detail-inner-wrapper {
+          .anime-AnimeEpisode-imaga-area-wrapper {
+            margin: 3px 12px 2px 10px;
+            .anime-AnimeEpisode-title {
+              font-size: 16px;
+            }
+            .anime-AnimeEpisode-image {
+            }
+            .anime-AnimeEpisode-status {
+              font-size: 10px;
+            }
+            .anime-AnimeEpisode-ep-count {
+              font-size: 10px;
+            }
+          }
+          .anime-AnimeEpisode-synopsis {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .anime-AnimeEpisode-outer-wrapper {
+    .anime-AnimeEpisode-inner-wrapper {
+      .anime-AnimeEpisode-streaming-outer-wrapper {
+        .anime-AnimeEpisode-streaming-inner-wrapper {
+          .anime-AnimeEpisode-iframe-outer-wrapper {
+                max-width: 500px;
+            .anime-AnimeEpisode-iframe-top-wrapper {
+              .anime-AnimeEpisode-go-to-detail-page {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+              .anime-AnimeEpisode-current-straming-episode {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+            }
+            .anime-AnimeEpisode-iframe-inner-wrapper {
+            }
+           
+          }
+        }
+      }
+      .anime-AnimeEpisode-detail-outer-wrapper {
+        .anime-AnimeEpisode-detail-inner-wrapper {
+          .anime-AnimeEpisode-imaga-area-wrapper {
+            margin: 3px 12px 2px 10px;
+            .anime-AnimeEpisode-title {
+              font-size: 13px;
+            }
+            .anime-AnimeEpisode-image {
+            }
+            .anime-AnimeEpisode-status {
+              font-size: 8px;
+            }
+            .anime-AnimeEpisode-ep-count {
+              font-size: 8px;
+            }
+          }
+          .anime-AnimeEpisode-synopsis {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .anime-AnimeEpisode-outer-wrapper {
+    .anime-AnimeEpisode-inner-wrapper {
+      .anime-AnimeEpisode-streaming-outer-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+        .anime-AnimeEpisode-streaming-inner-wrapper {
+          .anime-AnimeEpisode-iframe-outer-wrapper {
+            .anime-AnimeEpisode-iframe-top-wrapper {
+              .anime-AnimeEpisode-go-to-detail-page {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+              .anime-AnimeEpisode-current-straming-episode {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+            }
+            .anime-AnimeEpisode-iframe-inner-wrapper {
+            }
+            
+          }
+        }
+      }
+      .anime-AnimeEpisode-detail-outer-wrapper {
+        .anime-AnimeEpisode-detail-inner-wrapper {
+          .anime-AnimeEpisode-imaga-area-wrapper {
+            margin: 3px 12px 2px 10px;
+            .anime-AnimeEpisode-title {
+              font-size: 9px;
+            }
+            .anime-AnimeEpisode-image {
+            }
+            .anime-AnimeEpisode-status {
+              font-size: 6px;
+            }
+            .anime-AnimeEpisode-ep-count {
+              font-size: 6px;
+            }
+          }
+          .anime-AnimeEpisode-synopsis {
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .anime-AnimeEpisode-outer-wrapper {
+    .anime-AnimeEpisode-inner-wrapper {
+      .anime-AnimeEpisode-streaming-outer-wrapper {
+        .anime-AnimeEpisode-streaming-inner-wrapper {
+          .anime-AnimeEpisode-iframe-outer-wrapper {
+            .anime-AnimeEpisode-iframe-top-wrapper {
+              .anime-AnimeEpisode-go-to-detail-page {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+              .anime-AnimeEpisode-current-straming-episode {
+                margin-bottom: 2px;
+                font-size: 9px;
+              }
+            }
+          }
+        }
+      }
+      .anime-AnimeEpisode-detail-outer-wrapper {
+        .anime-AnimeEpisode-detail-inner-wrapper {
+          .anime-AnimeEpisode-imaga-area-wrapper {
+            margin: 3px 12px 2px 10px;
+            .anime-AnimeEpisode-title {
+              font-size: 9px;
+            }
+            .anime-AnimeEpisode-image {
+            }
+            .anime-AnimeEpisode-status {
+              font-size: 6px;
+            }
+            .anime-AnimeEpisode-ep-count {
+              font-size: 6px;
+            }
+          }
+          .anime-AnimeEpisode-synopsis {
+            font-size: 9px;
+          }
         }
       }
     }
