@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense} from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { Episodes } from '../animeDetail/Episodes'
 import { AnimeEpisodeLoading } from './AnimeEpisodeLoading'
 import {
   getAnimeEpisode,
   getAnimeDetailById,
 } from '../../../../../../api/apiReaquest/apiRequest'
+// import { Episodes } from '../animeDetail/Episodes'
+const Episodes = lazy(() => import(`../animeDetail/Episodes`).then(res => ({default: res.Episodes})))
 
 interface AnimeDetailData {
   animeTitle: string
@@ -37,6 +38,8 @@ export function AnimeEpisode() {
       ]).then((res) => {
         setData(res[0].data)
         setEpisodeLink(res[1].data.Referer)
+        // const scrollToEl = document.querySelector('.anime-AnimeEpisode-outer-wrapper') as HTMLElement;
+        // window.scrollTo(0, scrollToEl.offsetTop)
       })
   }, [params])
 
@@ -51,7 +54,7 @@ export function AnimeEpisode() {
               <div className="anime-AnimeEpisode-iframe-top-wrapper">
                 <div
                   className="anime-AnimeEpisode-go-to-detail-page"
-                  onClick={(e) => navigateTo(`/anime/detail/${params.animeId}`)}
+                  onClick={(e) => (navigateTo(`/anime/detail/${params.animeId}`), window.scrollTo(0, 0))}
                 >
                   Back ot anime detail
                 </div>
@@ -63,8 +66,6 @@ export function AnimeEpisode() {
                 {episodeLink ? (
                   <iframe
                     className="vid"
-                    //   width="560"
-                    //   height="315"
                     src={episodeLink}
                     allowFullScreen
                   ></iframe>
@@ -76,6 +77,7 @@ export function AnimeEpisode() {
                 <Episodes
                   {...{
                     animeId: params.animeId,
+                    animeTitle: data.animeTitle,
                     episodesList: data && data.episodesList,
                     currentEpisode: location.state.episodeNum
                   }}

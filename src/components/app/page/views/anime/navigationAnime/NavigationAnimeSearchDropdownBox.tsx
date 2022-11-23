@@ -18,6 +18,7 @@ export function NavigationAnimeSearchDropdownBox(props: Props){
     function clickHandler(e: React.MouseEvent){
         props.setInput('');
         navigateTo(`/anime/detail/${props.animeData.animeId}`);
+        window.scrollTo(0, 0)
 
     }
     return (
