@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import { useParams } from 'react-router-dom'
 import {
   getPopularAnime,
   getTopAiring,
 } from '../../../../../../api/apiReaquest/apiRequest'
 // import {PopularAnimeCard} from '../../anime/animeHome/popularAnime/PopularAnimeCard'
-import { AnimeCard } from '../animeCard/AnimeCard'
 import { Paginate } from '../../paginate/Paginate'
+
+// import { AnimeCard } from '../animeCard/AnimeCard'
+const AnimeCard = lazy(() => import(`../animeCard/AnimeCard`).then(res => ({default: res.AnimeCard})))
+
 
 interface SingleAnimeData {
   animeId: string
@@ -50,7 +53,9 @@ export function AnimeType() {
       <div className="anime-AnimeType-inner-wrapper">
         {data.length > 0 ? (
           data.map((anime) => (
-            <AnimeCard key={`PopularAnimeCard${key++}`} {...anime} />
+            <Suspense key={`PopularAnimeCard${key++}`} fallback={<div>Loading ...</div>}>
+                <AnimeCard  {...anime} />
+            </Suspense>
           ))
         ) : (
           <div className="anime-AnimeType-loading">Loading ...</div>
