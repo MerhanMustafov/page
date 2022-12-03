@@ -56,7 +56,7 @@ export function AnimeEpisode() {
                   className="anime-AnimeEpisode-go-to-detail-page"
                   onClick={(e) => (navigateTo(`/anime/detail/${params.animeId}`), window.scrollTo(0, 0))}
                 >
-                  Back ot anime detail
+                  Back to anime detail
                 </div>
                 <div className="anime-AnimeEpisode-current-straming-episode">
                   Episode {location.state.episodeNum}
