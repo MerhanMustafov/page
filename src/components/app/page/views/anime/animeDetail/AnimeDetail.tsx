@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getAnimeDetailById } from '../../../../../../api/apiReaquest/apiRequest'
 import { Episodes } from './Episodes'
-import { Genres } from '../animeHome/genres/Genres'
 interface AnimeDetailData {
   animeTitle: string
   animeImg: string
@@ -18,10 +17,11 @@ export function AnimeDetail() {
   const [data, setData] = useState<AnimeDetailData>()
 
   useEffect(() => {
-    params.animeId &&
+    if (params.animeId) {
       getAnimeDetailById(params.animeId).then((res) => {
         setData(res.data)
       })
+    } 
   }, [params])
   return (
     <div className="anime-AnimeDetail-outer-wrapper">
@@ -34,7 +34,7 @@ export function AnimeDetail() {
               alt="anime image"
             />
             <div className="anime-AnimeDetail-status">{data?.status}</div>
-            <div className="anime-AnimeDetail-episodes-count">
+            <div role="episodes" className="anime-AnimeDetail-episodes-count">
               Episodes {data?.episodesList.length}
             </div>
           </div>

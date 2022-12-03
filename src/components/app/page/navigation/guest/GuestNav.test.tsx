@@ -1,7 +1,10 @@
 import {screen, render} from '@testing-library/react';
-import {MemoryRouter, BrowserRouter} from 'react-router-dom'
-import {GuestNavigation} from './GuestNav';
+import {MemoryRouter, BrowserRouter} from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+import axios from 'axios';
 
+import {GuestNavigation} from './GuestNav';
+jest.mock('axios')
 
 describe('page navigation buttons', () => {
     it('Home btn on the screen', () => {
@@ -19,5 +22,7 @@ describe('page navigation buttons', () => {
         const movie_bnt = screen.getByText(/movie/i)
         expect(movie_bnt).toBeInTheDocument()
     })
+    
 })
+
 
