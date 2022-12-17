@@ -11,7 +11,7 @@ export function AnimeCard(props: Props) {
 
     const animeClick = () => {
         navigateTo(`/anime/detail/${props.animeId}`)
-        // window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
 
     }
   return (
@@ -22,7 +22,7 @@ export function AnimeCard(props: Props) {
           {props.animeTitle}
         </h2>
       </div>
-        <Link role={`goto_detail`} to={`/anime/detail/${props.animeId}`}>goto</Link>
+        {/* <Link role={`goto_detail`} to={`/anime/detail/${props.animeId}`}>goto</Link> */}
     </div>
   )
 }
