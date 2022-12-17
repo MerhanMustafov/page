@@ -3,11 +3,22 @@
   padding: 3px 0px;
   .page-GuestNavigation-inner-wrapper {
     // border: 5px solid green;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'p-btns p-time'
+    ;
+    justify-content: space-between;
+    
     margin: 0 auto;
     max-width: 1920px;
+    .page-GuestNavigation-btns-wrapper{
+
     .page-GuestNavigation-home-btn,
     .page-GuestNavigation-anime-btn,
     .page-GuestNavigation-movie-btn {
+        grid-area: p-btns;
       // border: 2px solid red;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-style: italic;
@@ -17,5 +28,46 @@
       padding: 0px 10px;
       font-size: 13px;
     }
+    }
+    .page-GuestNavigation-time-wrapper{
+        grid-area: p-time;
+        padding: 0 20px 0 0 ;
+
+        #current-time{
+            color: orange;
+        }
+    }
   }
+}
+
+
+@media screen and (max-width: 500px) {
+    .page-GuestNavigation-outer-wrapper {
+  .page-GuestNavigation-inner-wrapper {
+    // border: 5px solid green;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    'p-time'
+    'p-btns '
+    ;
+    justify-content: space-between;
+    .page-GuestNavigation-btns-wrapper{
+        justify-self: center;
+    .page-GuestNavigation-home-btn,
+    .page-GuestNavigation-anime-btn,
+    .page-GuestNavigation-movie-btn {
+        grid-area: p-btns;
+    }
+    }
+    .page-GuestNavigation-time-wrapper{
+        grid-area: p-time;
+        justify-self: center;
+        #current-time{
+            color: orange;
+            font-size: 10px;
+        }
+    }
+  }
+}
+    
 }
